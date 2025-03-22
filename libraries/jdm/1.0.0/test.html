@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<hr>
+<form id="form">
+    <h2>Dettagli utente</h2>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome" required >
+
+    <label for="cognome">Cognome:</label>
+    <input type="text" id="cognome" name="cognome" required value="Giacobazzi">
+
+    <h2>Indirizzo  </h2>
+    <label for="via">Via:</label>
+    <input type="text" id="via" name="indirizzo[via]" required >
+
+    <label for="citta">Città:</label>
+    <input type="text" id="citta" name="indirizzo[citta]" required value="Modena">
+
+    <label for="cap">CAP:</label>
+    <input type="text" id="cap" name="indirizzo[cap]" required value="41126">
+
+    <h2>Indirizzo IT </h2>
+    <label for="via">Via:</label>
+    <input type="text" id="viait" name="indirizzo[it][via]" required >
+
+    <label for="citta">Città:</label>
+    <input type="text" id="cittait" name="indirizzo[it][citta]" required value="Modena">
+
+    <label for="cap">CAP:</label>
+    <input type="text" id="capit" name="indirizzo[it][cap]" required value="41126">
+
+    <h2>Indirizzo EN </h2>
+    <label for="via">Via:</label>
+    <input type="text" id="viaen" name="indirizzo[en][via]" required >
+
+    <label for="citta">Città:</label>
+    <input type="text" id="cittaen" name="indirizzo[en][citta]" required value="Modena">
+
+    <label for="cap">CAP:</label>
+    <input type="text" id="capen" name="indirizzo[en][cap]" required value="41126">
+
+    <h2>Interessi</h2>
+    <ul id="interessi">
+        <li>
+            <label>
+                <input type="checkbox" name="interessi[]" value="sport" > Sport
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="interessi[]" value="musica"> Musica
+            </label>
+        </li>
+        <li>
+            <label>
+                <input type="checkbox" name="interessi[]" value="arte"> Arte
+            </label>
+        </li>
+    </ul>
+
+    <h2>Amici</h2>
+    <div id="amici">
+        <div class="amico">
+            <label for="nome-amico-1">Nome amico 1:</label>
+            <input type="text" id="nome-amico-1" name="amici[0].nome"  value="Cesare">
+
+            <label for="cognome-amico-1">Cognome amico 1:</label>
+            <input type="text" id="cognome-amico-1" name="amici[0].cognome"  value="Bordi">
+        </div>
+        <div class="amico">
+            <label for="nome-amico-2">Nome amico 2:</label>
+            <input type="text" id="nome-amico-2" name="amici[1].nome" >
+
+            <label for="cognome-amico-2">Cognome amico 2:</label>
+            <input type="text" id="cognome-amico-2" name="amici[1].cognome" >
+        </div>
+    </div>
+
+    <button type="submit">Invia</button>
+</form>
+
+
+
+<hr>
+
+</body>
+<script type="module">
+
+    import {Jdm, JdmData} from "./js/jdm.js";
+    const form = new Jdm( new JdmData(document.querySelector('#form')))
+
+    form.jdm_setValue({
+        nome: 'Foo',
+        indirizzo: {
+            via: 'foo',
+            it: {
+                via: 'foo IT'
+            },
+            en: {
+                via: 'foo EN'
+            }
+        },
+
+        interessi: [
+            'sport',
+            'arte'
+        ]
+    })
+    form.jdm_onSubmit((e)=> {
+        e.preventDefault()
+        console.log(form.jdm_getValue())
+    })
+</script>
+</html>

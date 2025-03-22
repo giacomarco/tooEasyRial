@@ -1,0 +1,18 @@
+{
+  "source": {
+    "include": ["./js"],
+    "exclude": ["node_modules", "example"]
+  },
+  "plugins": [
+    "plugins/markdown"
+  ],
+  "markdown": {
+    "parser": "gfm"
+  },
+  "opts": {
+    "destination": "docs",
+    "recurse": true,
+    "template": "node_modules/clean-jsdoc-theme",
+    "readme": "README.md"
+  }
+}

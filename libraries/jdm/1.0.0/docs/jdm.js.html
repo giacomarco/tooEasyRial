@@ -1,0 +1,841 @@
+<!DOCTYPE html><html lang="en" style="font-size:16px"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Source: jdm.js</title><!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]--><script src="scripts/third-party/hljs.js" defer="defer"></script><script src="scripts/third-party/hljs-line-num.js" defer="defer"></script><script src="scripts/third-party/popper.js" defer="defer"></script><script src="scripts/third-party/tippy.js" defer="defer"></script><script src="scripts/third-party/tocbot.min.js"></script><script>var baseURL="/",locationPathname="",baseURL=(locationPathname=document.location.pathname).substr(0,locationPathname.lastIndexOf("/")+1)</script><link rel="stylesheet" href="styles/clean-jsdoc-theme.min.css"><svg aria-hidden="true" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none"><defs><symbol id="copy-icon" viewbox="0 0 488.3 488.3"><g><path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124    C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124    c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/><path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227    c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6    V38.6C439.65,17.3,422.35,0,401.05,0z"/></g></symbol><symbol id="search-icon" viewBox="0 0 512 512"><g><g><path d="M225.474,0C101.151,0,0,101.151,0,225.474c0,124.33,101.151,225.474,225.474,225.474    c124.33,0,225.474-101.144,225.474-225.474C450.948,101.151,349.804,0,225.474,0z M225.474,409.323    c-101.373,0-183.848-82.475-183.848-183.848S124.101,41.626,225.474,41.626s183.848,82.475,183.848,183.848    S326.847,409.323,225.474,409.323z"/></g></g><g><g><path d="M505.902,476.472L386.574,357.144c-8.131-8.131-21.299-8.131-29.43,0c-8.131,8.124-8.131,21.306,0,29.43l119.328,119.328    c4.065,4.065,9.387,6.098,14.715,6.098c5.321,0,10.649-2.033,14.715-6.098C514.033,497.778,514.033,484.596,505.902,476.472z"/></g></g></symbol><symbol id="font-size-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11.246 15H4.754l-2 5H.6L7 4h2l6.4 16h-2.154l-2-5zm-.8-2L8 6.885 5.554 13h4.892zM21 12.535V12h2v8h-2v-.535a4 4 0 1 1 0-6.93zM19 18a2 2 0 1 0 0-4 2 2 0 0 0 0 4z"/></symbol><symbol id="add-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M11 11V5h2v6h6v2h-6v6h-2v-6H5v-2z"/></symbol><symbol id="minus-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M5 11h14v2H5z"/></symbol><symbol id="dark-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M10 7a7 7 0 0 0 12 4.9v.1c0 5.523-4.477 10-10 10S2 17.523 2 12 6.477 2 12 2h.1A6.979 6.979 0 0 0 10 7zm-6 5a8 8 0 0 0 15.062 3.762A9 9 0 0 1 8.238 4.938 7.999 7.999 0 0 0 4 12z"/></symbol><symbol id="light-theme-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 18a6 6 0 1 1 0-12 6 6 0 0 1 0 12zm0-2a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM11 1h2v3h-2V1zm0 19h2v3h-2v-3zM3.515 4.929l1.414-1.414L7.05 5.636 5.636 7.05 3.515 4.93zM16.95 18.364l1.414-1.414 2.121 2.121-1.414 1.414-2.121-2.121zm2.121-14.85l1.414 1.415-2.121 2.121-1.414-1.414 2.121-2.121zM5.636 16.95l1.414 1.414-2.121 2.121-1.414-1.414 2.121-2.121zM23 11v2h-3v-2h3zM4 11v2H1v-2h3z"/></symbol><symbol id="reset-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M18.537 19.567A9.961 9.961 0 0 1 12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10c0 2.136-.67 4.116-1.81 5.74L17 12h3a8 8 0 1 0-2.46 5.772l.997 1.795z"/></symbol><symbol id="down-icon" viewBox="0 0 16 16"><path fill-rule="evenodd" clip-rule="evenodd" d="M12.7803 6.21967C13.0732 6.51256 13.0732 6.98744 12.7803 7.28033L8.53033 11.5303C8.23744 11.8232 7.76256 11.8232 7.46967 11.5303L3.21967 7.28033C2.92678 6.98744 2.92678 6.51256 3.21967 6.21967C3.51256 5.92678 3.98744 5.92678 4.28033 6.21967L8 9.93934L11.7197 6.21967C12.0126 5.92678 12.4874 5.92678 12.7803 6.21967Z"></path></symbol><symbol id="codepen-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M16.5 13.202L13 15.535v3.596L19.197 15 16.5 13.202zM14.697 12L12 10.202 9.303 12 12 13.798 14.697 12zM20 10.869L18.303 12 20 13.131V10.87zM19.197 9L13 4.869v3.596l3.5 2.333L19.197 9zM7.5 10.798L11 8.465V4.869L4.803 9 7.5 10.798zM4.803 15L11 19.131v-3.596l-3.5-2.333L4.803 15zM4 13.131L5.697 12 4 10.869v2.262zM2 9a1 1 0 0 1 .445-.832l9-6a1 1 0 0 1 1.11 0l9 6A1 1 0 0 1 22 9v6a1 1 0 0 1-.445.832l-9 6a1 1 0 0 1-1.11 0l-9-6A1 1 0 0 1 2 15V9z"/></symbol><symbol id="close-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636z"/></symbol><symbol id="menu-icon" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0z"/><path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"/></symbol></defs></svg></head><body class="dark" data-theme="dark"><div class="sidebar-container"><div class="sidebar" id="sidebar"><a href="/" class="sidebar-title sidebar-title-anchor">Home</a><div class="sidebar-items-container"><div class="sidebar-section-title with-arrow" data-isopen="false" id="yoMjdnGM1WRzDODJ29XuN"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Jdm.html">Jdm</a></div><div class="sidebar-section-children"><a href="JdmData.html">JdmData</a></div><div class="sidebar-section-children"><a href="Proto.html">Proto</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="_Gibu2GXUArUUK5xI_2yi"><div>Global</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="global.html#jdm_getAttribute">jdm_getAttribute</a></div></div></div></div></div><div class="navbar-container" id="VuAckcnZhf"><nav class="navbar"><div class="navbar-left-items"></div><div class="navbar-right-items"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div><nav></nav></nav></div><div class="toc-container"><div class="toc-content"><span class="bold">On this page</span><div id="eed4d2a0bfd64539bb9df78095dec881"></div></div></div><div class="body-wrapper"><div class="main-content"><div class="main-wrapper"><section id="source-page" class="source-page"><header><h1 id="title" class="has-anchor">jdm.js</h1></header><article><pre class="prettyprint source lang-js"><code>import {_common} from "./_common.js";
+import {Proto} from "./proto.js";
+
+new Proto();
+
+/**
+ * Classe che rappresenta un oggetto contenente i dati del nodo HTML.
+ */
+export class JdmData {
+	/**
+	 * Crea un'istanza di JdmData.
+	 * @param {Element|null|string} element - L'elemento HTML del nodo.
+	 * @param {Element|Jdm|null} parent - L'elemento HTML del nodo padre.
+	 * @param {string|Array&lt;string>|null} classList - La lista di classi del nodo.
+	 * @param {boolean} deep - Un flag che indica se il nodo deve essere creato con eventuali nodi figli.
+	 * @param {...any} args - Argomenti aggiuntivi opzionali per la classe JdmData.
+	 */
+	constructor(element = null, parent = null, classList = null, deep = false, ...args) {
+		this.element = element;
+		this.parent = parent;
+		this.classList = classList;
+		this.deep = deep;
+		this.args = args;
+	}
+}
+
+/**
+ * Classe che rappresenta un nodo HTML
+ *
+ * CDN: {@link https://cdn.dev-box.it/jdm/latest/jdm.js}.
+ *
+ * ESEMPI: {@link https://codepen.io/collection/BNzzYd}.
+ */
+export class Jdm {
+	/**
+	 * Crea un'istanza di Jdm.
+	 * @param {JdmData|string} elementOrData - L'elemento HTML del nodo o l'oggetto JdmData.
+	 * @param {Element|Jdm|null} parent - L'elemento HTML del nodo padre.
+	 * @param {string|Array&lt;string>|null} classList - La lista di classi del nodo.
+	 * @param {boolean} deep - Un flag che indica se il nodo deve essere creato con eventuali nodi figli.
+	 * @returns {Element} L'elemento HTML creato.
+	 */
+	constructor(elementOrData = null, parent = null, classList = null, deep = false) {
+		// Crea un nuovo oggetto JdmData con valori predefiniti
+		let data = new JdmData();
+
+		// Verifica se è stato fornito un oggetto JdmData come primo argomento
+		if (elementOrData instanceof JdmData) {
+			// Se fornito un oggetto JdmData, aggiorna l'oggetto data con le sue proprietà
+			data = { ...data, ...elementOrData };
+		} else {
+			// Se forniti gli argomenti direttamente, aggiorna l'oggetto data con i valori specificati
+			data = { ...data, ...{ element: elementOrData, parent: parent, classList: classList, deep: deep } };
+		}
+
+		// Inizializza l'istanza Jdm con i dati forniti e ottieni il nodo HTML corrispondente
+		this.node = this.init(data);
+
+		// Esegue alcune operazioni aggiuntive sull'istanza
+		this.tag = this.node.tagName.toLowerCase();
+		if (data.classList) this.jdm_addClassList(data.classList);
+		if (data.parent) data.parent.appendChild(this.node);
+		if (data.deep) {
+			const mainNode = data.args?.length > 0 ? data.args[0]?.mainNode : null
+			this.loopOverChild(this.node.childNodes, data.args[0]?.mainNode);
+		}
+		this.addJdmMethodToNode();
+
+		// Restituisce l'elemento HTML creato
+		return this.node;
+	}
+
+	/**
+	 * Inizializza il nodo in base ai dati specificati.
+	 * @private
+	 * @param {JdmData} data - L'oggetto JdmData contenente i dati del nodo.
+	 * @returns {Element} L'elemento HTML creato.
+	 */
+	init(data) {
+		// Switch statement controlla il tipo dell'elemento passato a questa funzione
+		switch (this.checkType(data.element)) {
+			// Se l'elemento è una stringa che rappresenta un tag HTML, crea un nuovo elemento con il nome specificato e lo restituisce
+			case 'tagString':
+				return document.createElement(data.element);
+			// Se l'elemento è una stringa che rappresenta un documento HTML, crea un nuovo documento HTML con il parser DOM e restituisce il primo nodo figlio del body
+			case 'domFromString':
+				const parser = new DOMParser();
+				return parser.parseFromString(data.element, "text/html").getRootNode().body.firstChild;
+			// Se l'elemento è già un elemento del DOM, lo restituisce
+			case 'elementDom':
+				return data.element;
+			// Se il tipo dell'elemento non è riconosciuto, esegue un'operazione di default
+			case 'domFromHtml':
+				const parserHtml = new DOMParser();
+				return parserHtml.parseFromString(data.element, "text/html").getRootNode().body.firstChild;
+			case 'unknown':
+				console.info(data);
+				console.log('-------> CHECK TO DO MAY BE ALERT');
+				break;
+		}
+	}
+
+	/**
+	 * Verifica il tipo della variabile specificata.
+	 * La funzione checkType verifica il tipo della variabile passata come parametro e restituisce una stringa che identifica il tipo.
+	 * La stringa restituita può essere una delle seguenti:
+	 * 'domFromString': se la variabile è una stringa che rappresenta un singolo elemento DOM.
+	 * 'domFromHtml': se la variabile è una stringa che rappresenta uno o più elementi HTML.
+	 * 'tagString': se la variabile è una stringa che rappresenta un singolo tag HTML.
+	 * 'elementDom': se la variabile è un oggetto Element del DOM.
+	 * 'unknown': se il tipo della variabile non può essere identificato.
+	 * @private
+	 * @param {*} variable - La variabile da verificare.
+	 * @returns {string} Il tipo della variabile.
+	 */
+	checkType(variable) {
+		if (typeof variable === 'string') {
+			//La funzione variable.charAt(0) === '&lt;' &amp;&amp; variable.charAt(variable.length - 1) === '>' verifica se la stringa variable inizia con il carattere &lt; e finisce con il carattere >.
+			// Questa espressione viene utilizzata per controllare se la variabile variable rappresenta un singolo elemento DOM, che è rappresentato da una stringa delimitata dai caratteri &lt; e >.
+			// La funzione restituisce true se la stringa variable inizia con &lt; e finisce con >, altrimenti restituisce false.
+			if (variable.charAt(0) === '&lt;' &amp;&amp; variable.charAt(variable.length - 1) === '>') {
+				return 'domFromString';
+				//La funzione /&lt;[a-z][\s\S]*>/i.test(variable) verifica se la variabile variable contiene una stringa che inizia con il carattere &lt;, seguito da un carattere alfabetico minuscolo [a-z] e poi da zero o più caratteri di spazio o non-spazio [\s\S]*. Questa espressione regolare viene quindi usata per controllare se la variabile variable rappresenta uno o più elementi HTML.
+				// Il flag i nella regex indica che la ricerca è case-insensitive, quindi la regex corrisponde anche ai tag scritti in lettere maiuscole.
+				// La funzione restituisce true se la regex corrisponde alla stringa della variabile variable, altrimenti restituisce false.
+			} else if (/&lt;[a-z][\s\S]*>/i.test(variable)) {
+				return 'domFromHtml';
+			} else {
+				return 'tagString';
+			}
+			//La funzione variable instanceof Element verifica se la variabile variable è un'istanza della classe Element del DOM, ovvero se è un oggetto Element del DOM.
+			// Questa funzione viene utilizzata per controllare se la variabile variable rappresenta un elemento del DOM, come un tag HTML o un nodo del DOM.
+			// La funzione restituisce true se la variabile variable è un'istanza della classe Element, ovvero se è un oggetto Element del DOM, altrimenti restituisce false.
+		} else if (variable instanceof Element) {
+			return 'elementDom';
+		} else {
+			return 'unknown';
+		}
+	}
+
+	/**
+	 * Itera sui nodi figli e aggiunge una proprietà "jdm_childNode" all'oggetto principale
+	 * per ogni nodo figlio, indicizzando per nome se presente un attributo "jdm_name" o il alternativa "name" nel nodo figlio.
+	 * @param {NodeList} childNodes - Lista dei nodi figli.
+	 * @param {Object} [mainNode=null] - Oggetto principale a cui aggiungere le proprietà "jdm_childNode".
+	 */
+	loopOverChild(childNodes, mainNode = null) {
+		// Filtra solo i nodi con un nodoType minore o uguale a 2 (cioè nodi elementi e nodi di testo)
+		childNodes = Array.from(childNodes).filter(child => child.nodeType &lt;= 2);
+		// Se non viene passato un mainNode, utilizza il nodo corrente come mainNode
+		mainNode = mainNode ? mainNode : this.node;
+		// Se ci sono nodi figli, crea un oggetto jdm_childNode e aggiungi un'istanza di Jdm ai nodi figli con un attributo "name"
+		if (childNodes.length > 0) {
+			mainNode.jdm_childNode = mainNode.jdm_childNode ? mainNode.jdm_childNode : {};
+			for (const child of childNodes) {
+				const name = child.getAttribute('name');
+				const dataName = child.getAttribute('data-name');
+				// Crea un'istanza di Jdm per il nodo figlio
+				const jdmElement = new Jdm(new JdmData( child, null, null, true, {mainNode: mainNode}));
+				if (dataName) {
+					mainNode.jdm_childNode[dataName] = jdmElement;
+				} else if (name) {
+					mainNode.jdm_childNode[name] = jdmElement;
+				}
+			}
+		}
+	}
+
+	/**
+	 * Aggiunge i metodi di `Jdm` come proprietà del nodo corrente.
+	 * La funzione addJdmMethodToNode() aggiunge i metodi di Jdm come proprietà del nodo corrente.
+	 * La funzione non accetta parametri e non restituisce alcun valore.
+	 * La funzione utilizza il metodo Object.getOwnPropertyNames() per ottenere una lista dei nomi di tutti i metodi definiti nel prototipo di Jdm.
+	 * Successivamente, la funzione filtra la lista dei metodi per includere solo quelli che iniziano con 'jdm_'.
+	 * Infine, la funzione aggiunge ciascun metodo di Jdm come proprietà del nodo corrente utilizzando il metodo bind().
+	 * @private
+	 * @returns {void}
+	 */
+	addJdmMethodToNode() {
+		// Ottiene una lista dei nomi di tutti i metodi definiti nel prototipo di `Jdm`.
+		const methodList = Object.getOwnPropertyNames(Jdm.prototype);
+		// Filtra la lista dei metodi per includere solo quelli che iniziano con 'jdm_'.
+		const jdm_methodList = methodList.filter((elemento) => {
+			return elemento.startsWith('jdm_');
+		});
+		// Aggiunge ciascun metodo di `Jdm` come proprietà del nodo corrente.
+		for (const jdmMethod of jdm_methodList) {
+			this.node[jdmMethod] = this[jdmMethod].bind(this);
+		}
+	}
+
+	/**
+	 * Imposta il valore dell'attributo specificato per il nodo corrente e genera un evento "setAttribute".
+	 * La funzione jdm_setAttribute() imposta il valore dell'attributo specificato per il nodo corrente e genera un evento "setAttribute".
+	 * La funzione accetta due parametri: attribute, che indica il nome dell'attributo da impostare, e value, che rappresenta il valore dell'attributo da impostare.
+	 * Il valore restituito è l'oggetto Element che rappresenta il nodo corrente. La funzione utilizza il metodo setAttribute() per impostare il valore dell'attributo specificato
+	 * per il nodo corrente, e poi utilizza il metodo jdm_genEvent() per generare un evento "setAttribute" con i dati relativi all'attributo impostato.
+	 * @function
+	 * @param {string} attribute - Il nome dell'attributo da impostare.
+	 * @param {*} value - Il valore dell'attributo da impostare.
+	 * @returns {Element} - Il nodo corrente.
+	 */
+	jdm_setAttribute(attribute, value = null) {
+		// Imposta il valore dell'attributo specificato per il nodo corrente.
+		this.node.setAttribute(attribute, value);
+		// Genera un evento "setAttribute" con i dati relativi all'attributo impostato.
+		this.jdm_genEvent('setAttribute', {attribute: attribute, value: value});
+		// Restituisce il nodo corrente.
+		return this.node;
+	}
+
+	/**
+	 * Restituisce il valore dell'attributo specificato per il nodo corrente.
+	 *
+	 * @function jdm_getAttribute
+	 * @param {string} attribute - Il nome dell'attributo di cui si vuole ottenere il valore.
+	 * @returns {string|null} Il valore dell'attributo specificato oppure null se l'attributo non esiste.
+	 */
+	jdm_getAttribute(attribute) {
+		// Ottiene il valore dell'attributo specificato per il nodo corrente.
+		// Utilizziamo il metodo "getAttribute" sul nodo corrente "this.node" passando come parametro il nome dell'attributo "attribute".
+		// Il metodo restituisce il valore dell'attributo se presente, altrimenti restituisce null.
+		return this.node.getAttribute(attribute);
+	}
+
+	/**
+	 * Aggiunge uno o più elementi come figli del nodo corrente.
+	 * @param {Element|Element[]} elementList - L'elemento o la lista di elementi da aggiungere come figli del nodo corrente.
+	 * @returns {Element} L'elemento corrente dopo l'aggiunta degli elementi figli.
+	 */
+	jdm_append(elementList) {
+		// Controlla se elementList è un array
+		if (Array.isArray(elementList)) {
+			// Scorre gli elementi dell'array
+			for (const element of elementList) {
+				// Aggiunge l'elemento come figlio del nodo corrente tramite il metodo appendChild
+				this.node.appendChild(element);
+			}
+		}
+		// Se elementList non è un array ma è comunque definito
+		else if (elementList) {
+			// Aggiunge l'elemento come figlio del nodo corrente tramite il metodo appendChild
+			this.node.appendChild(elementList);
+		}
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge una o più classi all'elemento corrente.
+	 * La funzione prende in input un parametro classList che può essere una stringa o un array di stringhe contenenti le classi da aggiungere all'elemento corrente.
+	 * La funzione aggiunge le classi specificate all'elemento corrente e restituisce l'elemento a cui sono state aggiunte le classi. Se l'input classList è null, undefined o un array vuoto, la funzione non fa nulla e restituisce l'elemento corrente senza modifiche.
+	 * @param {string|string[]} classList - la o le classi da aggiungere.
+	 * @returns {HTMLElement} L'elemento a cui sono state aggiunte le classi.
+	 */
+	jdm_addClassList(classList) {
+		// Controlla se `classList` è un array
+		if (Array.isArray(classList)) {
+			// Aggiunge tutte le classi presenti nell'array
+			for (const cls of classList) {
+				this.node.classList.add(cls);
+			}
+		}
+		// Se `classList` non è un array, controlla se esiste
+		else if (classList) {
+			// Aggiunge la classe unica indicata in `classList`
+			this.node.classList.add(classList);
+		}
+		// Restituisce l'elemento HTML a cui sono state aggiunte le classi
+		return this.node;
+	}
+
+	/**
+	 * La funzione rimuove una o più classi dalla lista di classi del nodo.
+	 * Se la lista di classi è un array, cicla attraverso la lista e rimuove ogni classe dal nodo.
+	 * Se la lista di classi non è un array ma esiste, rimuove la classe dal nodo.
+	 * Restituisce il nodo con la classe (o classi) rimossa/e.
+	 * Rimuove una o più classi dalla lista di classi del nodo.
+	 * @param {(string|string[])} classList - Il nome della classe o un array di nomi di classi da rimuovere.
+	 * @returns {HTMLElement} Il nodo con la classe (o classi) rimossa/e.
+	 */
+	jdm_removeClassList(classList) {
+		// Verifica se la lista di classi è un array
+		if (Array.isArray(classList)) {
+			// Cicla attraverso la lista di classi
+			for (const cls of classList) {
+				// Rimuove la classe dal nodo
+				this.node.classList.remove(cls);
+			}
+		}
+		// Se la lista di classi non è un array ma esiste
+		else if (classList) {
+			// Rimuove la classe dal nodo
+			this.node.classList.remove(classList);
+		}
+		// Restituisce il nodo con la classe (o classi) rimossa/e
+		return this.node;
+	}
+
+	/**
+	 * Toggle delle classi presenti nell'array o della singola classe sul nodo corrente.
+	 * @param {string[]|string} classList - L'array di classi o la singola classe da aggiungere o rimuovere.
+	 * @returns {HTMLElement} - L'elemento corrente con le classi modificate.
+	 */
+	jdm_toggleClassList(classList) {
+		// Se classList è un array, itera attraverso ogni classe e aggiungi o rimuovi la classe dal nodo.
+		if (Array.isArray(classList)) {
+			for (const cls of classList) {
+				// Rimuove la classe dal nodo
+				this.node.classList.toggle(cls);
+			}
+		}
+		// Altrimenti, se classList è una stringa, aggiungi o rimuovi la classe dal nodo.
+		else if (classList) {
+			this.node.classList.toggle(classList);
+		}
+		// Restituisci l'elemento corrente con le classi modificate.
+		return this.node;
+	}
+
+	/**
+	 * Svuota il contenuto dell'elemento HTML corrente.
+	 * @returns {HTMLElement} L'elemento HTML su cui è stata chiamata la funzione.
+	 */
+	jdm_empty() {
+		// Se l'elemento HTML corrente è un input di tipo checkbox o radio, imposta la proprietà checked su false
+		if (this.tag === 'input' &amp;&amp; (this.node.element === 'checkbox' || this.node.element === 'radio')) {
+			this.node.checked = false;
+		}
+		// Se l'elemento HTML corrente è un input di tipo text, textarea , imposta la proprietà value su null
+		else if (this.tag === 'input' || this.tag === 'textarea' ) {
+			this.node.value = null;
+		}
+		// Se l'elemento HTML corrente è un form, resetta il form
+		else if (this.tag === 'form') {
+			this.node.reset();
+		}
+		// Se l'elemento HTML corrente non è nessuno dei precedenti, imposta l'innerHTML su una stringa vuota
+		else {
+			this.node.innerHTML = '';
+		}
+		// Restituisce l'elemento HTML su cui è stata chiamata la funzione
+		return this.node;
+	}
+
+	/**
+	 * Rimuove l'elemento HTML dal DOM.
+	 * La funzione jdm_destroy rimuove l'elemento HTML dal DOM.
+	 * Prima di rimuovere l'elemento, genera un evento "destroy" utilizzando il metodo jdm_genEvent. Infine, restituisce l'elemento HTML rimosso dal DOM.
+	 * @returns {HTMLElement} L'elemento HTML rimosso dal DOM.
+	 */
+	jdm_destroy() {
+		// Rimuove l'elemento HTML dal DOM.
+		this.node.remove();
+		// Genera un evento 'destroy'.
+		this.jdm_genEvent('destroy');
+		// Restituisce l'elemento HTML rimosso dal DOM.
+		return this.node;
+	}
+
+	/**
+	 * Esegue la validazione dell'elemento HTML corrente.
+	 * La funzione jdm_validate() esegue la validazione dell'elemento HTML corrente utilizzando il metodo checkValidity() dell'oggetto node.
+	 * Inoltre, la funzione genera un evento 'validate' utilizzando il metodo jdm_genEvent() e restituisce l'elemento HTML su cui è stata chiamata la funzione.
+	 * @returns {HTMLElement} L'elemento HTML su cui è stata chiamata la funzione.
+	 */
+	jdm_validate() {
+		// Esegue la validazione dell'elemento HTML corrente.
+		this.node.checkValidity();
+		// Genera un evento 'validate'.
+		this.jdm_genEvent('validate');
+		// Restituisce l'elemento HTML su cui è stata chiamata la funzione.
+		return this.node;
+	}
+
+	/**
+	 * Rimuove l'attributo specificato dall'elemento.
+	 * Questa funzione rimuove un attributo dall'elemento a cui è stato applicato il metodo.
+	 * Per fare ciò, utilizza il metodo removeAttribute dell'oggetto node che rappresenta l'elemento HTML.
+	 * Successivamente, genera un evento personalizzato di tipo 'removeAttribute' utilizzando il metodo jdm_genEvent.
+	 * Il parametro passato all'evento è un oggetto con l'attributo che è stato rimosso. Infine, restituisce l'elemento a cui è stato rimosso l'attributo.
+	 * @param {string} attribute - L'attributo da rimuovere.
+	 * @returns {HTMLElement} L'elemento a cui è stata rimossa l'attributo.
+	 */
+	jdm_removeAttribute(attribute) {
+		// Rimuove l'attributo dall'elemento.
+		this.node.removeAttribute(attribute);
+		// Genera un evento 'removeAttribute' e passa l'attributo come parametro.
+		this.jdm_genEvent('removeAttribute', {attribute: attribute});
+		// Restituisce l'elemento a cui è stato rimosso l'attributo.
+		return this.node;
+	}
+
+	/**
+	 * Imposta il valore di una proprietà CSS dell'elemento.
+	 * La funzione jdm_setStyle imposta il valore di una proprietà CSS dell'elemento selezionato.
+	 * I parametri richiesti sono il nome della proprietà CSS e il suo valore. La funzione restituisce l'elemento su cui è stata impostata la proprietà CSS.
+	 * @param {string} style - Il nome della proprietà CSS da impostare.
+	 * @param {string} value - Il valore della proprietà CSS da impostare.
+	 * @returns {HTMLElement} - L'elemento su cui è stata impostata la proprietà CSS.
+	 */
+	jdm_setStyle(style, value) {
+		// Imposta il valore della proprietà CSS specificata sull'elemento.
+		this.node.style[style] = value;
+		// Restituisce l'elemento su cui è stata impostata la proprietà CSS.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge una proprietà all'oggetto "node" e restituisce l'oggetto modificato.
+	 * @param {string} name - Il nome della proprietà da aggiungere.
+	 * @param {Object} [object=null] - L'oggetto da assegnare alla proprietà. Default: null.
+	 * @returns {HTMLElement} L'oggetto "node" con la nuova proprietà aggiunta.
+	 */
+	jdm_extendNode(name, object = null) {
+		// Assegna l'oggetto "object" alla proprietà con il nome "name" dell'oggetto "node".
+		this.node[name] = object;
+		// Restituisce l'oggetto "node" con la nuova proprietà aggiunta.
+		return this.node;
+	}
+
+	/**
+	 * Imposta il contenuto HTML dell'elemento.
+	 * Questa funzione imposta il contenuto HTML dell'elemento corrente con il valore specificato e restituisce l'elemento stesso.
+	 * Il parametro value rappresenta il valore HTML da impostare.
+	 * La funzione utilizza la proprietà innerHTML dell'elemento corrente per impostare il valore specificato come contenuto HTML dell'elemento.
+	 * @param {string | HTMLElement} value - Il valore HTML da impostare.
+	 * @returns {HTMLElement} L'elemento su cui è stato impostato il contenuto HTML.
+	 */
+	jdm_innerHTML(value) {
+		// Imposta il contenuto HTML dell'elemento.
+		this.node.innerHTML = value;
+		// Restituisce l'elemento su cui è stato impostato il contenuto HTML.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge la possibilità di binding dei dati a un elemento del DOM.
+	 * La funzione jdm_binding esegue il binding di un evento su uno o più elementi HTML. Inoltre, se il twoWayDataBinding è abilitato, esegue il binding bidirezionale tra tutti gli elementi nella lista.
+	 * Parametri:
+	 * el - L'elemento HTML o l'array di elementi HTML a cui applicare il binding.
+	 * event - L'evento su cui applicare il binding (predefinito a 'input').
+	 * twoWayDataBinding - Flag che indica se il binding deve essere bidirezionale (predefinito a true).
+	 * La funzione inizia creando una lista vuota di elementi e verifica se el è un array o un singolo elemento. Se el è un array, concatena la lista vuota con el, altrimenti lo pusha dentro.
+	 * Successivamente, la funzione esegue il binding di un evento sull'elemento se questo è un input, una select o una textarea. Se l'elemento non è uno di questi, esegue il binding sull'innerHTML.
+	 * Se il twoWayDataBinding è abilitato, la funzione esegue il binding bidirezionale tra tutti gli elementi nella lista, escluso quello corrente, creando una copia della lista degli elementi e aggiungendo l'elemento corrente. Per ogni elemento nella nuova lista, viene richiamata la funzione jdm_binding impostando il flag twoWayDataBinding a false.
+	 * Infine, la funzione restituisce l'elemento a cui è stato applicato il binding.
+	 * @param {Element[]} el - L'elemento o gli elementi del DOM a cui bindare i dati.
+	 * @param {string} [event='input'] - L'evento che attiva il binding.
+	 * @param {boolean} [twoWayDataBinding=true] - Indica se il binding deve essere bidirezionale o meno.
+	 * @returns {HTMLElement} L'elemento a cui è stato applicato il binding.
+	 */
+	jdm_binding(el, event = 'input', twoWayDataBinding = true) {
+		let elementList = [];
+		// Se el è un array concatena elementList a esso, altrimenti lo pusha dentro.
+		if (Array.isArray(el)) {
+			elementList = elementList.concat(el);
+		} else {
+			elementList.push(el);
+		}
+		// Per ogni elemento nella lista di elementi el, applica il binding.
+		for (const element of elementList) {
+			// Se l'elemento è un input, una select o una textarea, applica il binding sull'evento indicato.
+			if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'select' || element.tagName.toLowerCase() === 'textarea') {
+				this.node.addEventListener(event, () => {
+					element.jdm_setValue(this.jdm_getValue());
+				});
+				// Altrimenti, se l'elemento non è un input, una select o una textarea, applica il binding sull'innerHTML.
+			} else {
+				this.node.addEventListener(event, () => {
+					element.jdm_innerHTML(this.jdm_getValue());
+				});
+			}
+			// Se il twoWayDataBinding è abilitato, applica il binding bidirezionale tra tutti gli elementi nella lista.
+			if (twoWayDataBinding) {
+				const elementListTmp = elementList.filter(elementTmp => elementTmp !== element);
+				elementListTmp.push(this.node);
+				for (const elementTmp of elementListTmp) {
+					element.jdm_binding(elementListTmp, event, false);
+				}
+			}
+		}
+		// Restituisce l'elemento a cui è stato applicato il binding.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un listener per l'evento "input" all'elemento, che viene attivato quando l'utente modifica il valore dell'input.
+	 * Questo codice definisce un metodo chiamato jdm_onInput che aggiunge un listener per l'evento "input" a un elemento HTML specifico.
+	 * Il listener è una funzione fn che viene fornita come argomento.
+	 * In altre parole, quando viene rilevato l'evento "input" sull'elemento specificato, la funzione fn verrà eseguita.
+	 * Il metodo restituisce l'elemento stesso, in modo che possa essere concatenato con altre operazioni su quell'elemento.
+	 * @param {function} fn - La funzione da eseguire quando l'evento "input" viene attivato.
+	 * @returns {HTMLElement} - L'elemento su cui è stato registrato l'evento.
+	 */
+	jdm_onInput(fn = () => {}) {
+		// Aggiunge un listener per l'evento "input" all'elemento.
+		this.node.addEventListener('input', fn);
+		// Restituisce l'elemento su cui è stato registrato l'evento.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un listener per l'evento "change" all'elemento.
+	 * la funzione aggiunge un listener per l'evento "change" all'elemento e restituisce l'elemento su cui è stato registrato l'evento.
+	 * La documentazione JSDOC fornisce ulteriori dettagli sulla funzione, incluso il parametro fn che indica la funzione da eseguire quando si verifica l'evento "change".
+	 * @param {Function} fn - La funzione da eseguire quando si verifica l'evento "change".
+	 * @returns {HTMLElement} L'elemento a cui è stato aggiunto il listener per l'evento "change".
+	 */
+	jdm_onChange(fn = () => {}) {
+		// Aggiunge un listener per l'evento "change" all'elemento.
+		this.node.addEventListener('change', fn);
+		// Restituisce l'elemento su cui è stato registrato l'evento.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un gestore di eventi all'evento "select" dell'elemento.
+	 * La funzione jdm_onSelect prende come parametro una funzione fn da eseguire quando l'evento select viene attivato sull'elemento su cui è chiamata la funzione.
+	 * La funzione aggiunge un listener per l'evento select all'elemento usando il metodo addEventListener. Il parametro fn è la funzione da eseguire quando l'evento viene attivato.
+	 * Infine, la funzione restituisce l'elemento su cui è stato registrato l'evento, utilizzando il costrutto return this.node.
+	 * @param {function} fn - La funzione da eseguire quando l'evento "select" viene attivato.
+	 * @returns {HTMLElement} L'elemento su cui è stato registrato l'evento.
+	 */
+	jdm_onSelect(fn = () => {}) {
+		// Aggiunge un listener per l'evento "select" all'elemento.
+		this.node.addEventListener('select', fn);
+		// Restituisce l'elemento su cui è stato registrato l'evento.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un listener per l'evento 'input' al nodo dell'oggetto Jdm e applica il pattern debounce alla funzione di callback.
+	 * la funzione aggiunge un listener per l'evento input al nodo dell'oggetto Jdm e applica il pattern debounce alla funzione di callback passata come parametro fn.
+	 * Il pattern debounce ritarda l'esecuzione della funzione di callback per un certo periodo di tempo specificato dal parametro opzionale timeout.
+	 * Il valore di default per timeout è 300 millisecondi. Infine, la funzione restituisce il nodo dell'oggetto Jdm.
+	 * @param {Function} fn - La funzione di callback da eseguire quando l'evento 'input' viene attivato.
+	 * @param {number} [timeout=300] - Il tempo in millisecondi per cui la funzione di callback deve essere ritardata.
+	 * @returns {HTMLElement} Il nodo dell'oggetto Jdm.
+	 */
+	jdm_onDebounce(fn = () => {}, timeout = 300) {
+		// Aggiunge un listener per l'evento 'input' al nodo dell'oggetto Jdm e applica il pattern debounce alla funzione di callback.
+		this.node.addEventListener('input', _common.debounce(fn, timeout));
+		// Restituisce il nodo dell'oggetto Jdm.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un gestore di eventi "click" all'elemento e restituisce l'elemento stesso.
+	 * Questa funzione viene utilizzata per aggiungere un gestore di eventi "click" all'elemento specifico e restituisce l'elemento stesso. La funzione addEventListener() viene utilizzata per aggiungere il gestore di eventi "click" all'elemento.
+	 * Il parametro fn rappresenta la funzione che deve essere eseguita quando si verifica l'evento "click". Se non viene fornita alcuna funzione, viene utilizzata una funzione vuota di default.
+	 * La funzione restituisce l'elemento a cui è stato aggiunto il gestore di eventi "click", in modo che possa essere ulteriormente elaborato o utilizzato in altre parti del codice.
+	 * @param {Function} fn - La funzione che deve essere eseguita quando si verifica l'evento "click".
+	 * @returns {HTMLElement} L'elemento a cui è stato aggiunto il gestore di eventi "click".
+	 */
+	jdm_onClick(fn = () => {}) {
+		// Utilizza la funzione addEventListener() per aggiungere un gestore di eventi "click" all'elemento
+		this.node.addEventListener('click', fn);
+		// Restituisce l'elemento stesso
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un gestore di eventi "dblclick" all'elemento e restituisce l'elemento stesso.
+	 * Questa funzione viene utilizzata per aggiungere un gestore di eventi "dblclick" all'elemento specifico e restituisce l'elemento stesso. La funzione addEventListener() viene utilizzata per aggiungere il gestore di eventi "dblclick" all'elemento.
+	 * Il parametro fn rappresenta la funzione che deve essere eseguita quando si verifica l'evento "dblclick". Se non viene fornita alcuna funzione, viene utilizzata una funzione vuota di default.
+	 * La funzione restituisce l'elemento a cui è stato aggiunto il gestore di eventi "dblclick", in modo che possa essere ulteriormente elaborato o utilizzato in altre parti del codice.
+	 * @param {Function} fn - La funzione che deve essere eseguita quando si verifica l'evento "dblclick".
+	 * @returns {HTMLElement} L'elemento a cui è stato aggiunto il gestore di eventi "dblclick".
+	 */
+	jdm_onDoubleClick(fn = () => {}) {
+		// Utilizza la funzione addEventListener() per aggiungere un gestore di eventi "dblclick" all'elemento
+		this.node.addEventListener('dblclick', fn);
+		// Restituisce l'elemento stesso
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un gestore di eventi "invalid" all'elemento e restituisce l'elemento stesso.
+	 * Questa funzione viene utilizzata per aggiungere un gestore di eventi "invalid" all'elemento specifico e restituisce l'elemento stesso. La funzione addEventListener() viene utilizzata per aggiungere il gestore di eventi "invalid" all'elemento.
+	 * Il parametro fn rappresenta la funzione che deve essere eseguita quando si verifica l'evento "invalid". Se non viene fornita alcuna funzione, viene utilizzata una funzione vuota di default.
+	 * La funzione restituisce l'elemento a cui è stato aggiunto il gestore di eventi "invalid", in modo che possa essere ulteriormente elaborato o utilizzato in altre parti del codice.
+	 * @param {Function} fn - La funzione che deve essere eseguita quando si verifica l'evento "invalid".
+	 * @returns {HTMLElement} L'elemento a cui è stato aggiunto il gestore di eventi "invalid".
+	 */
+	jdm_onInvalid(fn = () => {}) {
+		// Utilizza la funzione addEventListener() per aggiungere un gestore di eventi "invalid" all'elemento
+		this.node.addEventListener('invalid', fn);
+		// Restituisce l'elemento stesso
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un gestore di eventi "load" all'elemento e restituisce l'elemento.
+	 * Questa funzione aggiunge un gestore di eventi "load" a un elemento specifico e restituisce l'elemento stesso. La funzione addEventListener() viene utilizzata per aggiungere l'evento "load" all'elemento.
+	 * Il parametro fn rappresenta la funzione che deve essere eseguita quando si verifica l'evento "load". Se non viene fornita alcuna funzione, viene utilizzata una funzione vuota di default.
+	 * La funzione restituisce l'elemento a cui è stato aggiunto il gestore di eventi "load", in modo che possa essere ulteriormente elaborato o utilizzato in altre parti del codice.
+	 * @param {Function} fn - La funzione che deve essere eseguita quando si verifica l'evento "load".
+	 * @returns {HTMLElement} L'elemento a cui è stato aggiunto il gestore di eventi "load".
+	 */
+	jdm_onLoad(fn = () => {}) {
+		// Viene utilizzata la funzione addEventListener() per aggiungere l'evento "load" all'elemento specifico
+		this.node.addEventListener('load', fn);
+		// La funzione restituisce l'elemento a cui è stato aggiunto il gestore di eventi "load"
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un listener per gestire gli errori generati dal nodo specificato.
+	 * La funzione prende come parametro una funzione che verrà eseguita quando viene generato un errore sul nodo specificato.
+	 * Se la funzione non viene fornita, viene utilizzata una funzione vuota come valore predefinito.
+	 * @param {Function} [fn=() => {}] - La funzione che gestisce l'errore.
+	 * @returns {Object} - L'oggetto del nodo a cui è stato aggiunto il listener per l'errore.
+	 */
+	jdm_onError(fn = () => {}) {
+		// Aggiunge un listener per l'evento 'error' al nodo.
+		this.node.addEventListener('error', fn);
+		// Restituisce l'oggetto del nodo per consentire l'utilizzo di altre funzioni su di esso.
+		return this.node;
+	}
+
+	/**
+	 * Associa una funzione all'evento di submit del nodo corrente.
+	 * @param {function} fn - La funzione da associare all'evento di submit.
+	 * @returns {HTMLElement} Il nodo corrente a cui è stata associata la funzione.
+	 */
+	jdm_onSubmit(fn = () => {}) {
+		// Aggiunge un ascoltatore di eventi all'elemento corrente, che verrà attivato quando viene inviato il form
+		this.node.addEventListener('submit', fn);
+		// Restituisce l'elemento corrente
+		return this.node;
+	}
+
+	/**
+	 * Imposta il valore di un elemento del DOM
+	 * @param {*} value - il valore da impostare sull'elemento del DOM
+	 * @param tooBoolean - cerca di creare un booleano come valore (1 = true, 'true' = true)
+	 * @returns {*} il nodo del DOM a cui è stato impostato il valore
+	 */
+	jdm_setValue(value, tooBoolean = true) {
+
+		if (tooBoolean) {
+			try {
+				value = value.toBoolean()
+			} catch (e) {
+				value = value;
+			}
+		}
+
+
+		// Verifica se l'elemento corrente è una casella di controllo o un pulsante di opzione
+		if (this.node.type === 'checkbox' || this.node.type === 'radio') {
+			// Imposta il valore della casella di controllo o del pulsante di opzione
+			this.node.checked = value;
+		}
+		// Verifica se il tag corrente è un form
+		else if (this.tag === 'form') {
+			const setValue = (el, value) => {
+				if (el.type === "checkbox" || el.type === "radio") {
+					el.checked = value;
+				} else {
+					el.value = value;
+				}
+			}
+
+			const findElement = (form, name) => {
+				return form.querySelector(`[name="${name}"]`);
+			}
+
+			const populateForm = (form, data, prefix = "") => {
+				for (const key in data) {
+					const value = data[key];
+					const name = prefix ? `${prefix}[${key}]` : key;
+					const element = findElement(form, Array.isArray(value) ? `${name}[]` : name);
+
+					if (element) {
+						if (Array.isArray(value)) {
+							if (element.type === "checkbox") {
+								const checkboxes = form.querySelectorAll(`[name="${name}[]"]`);
+								checkboxes.forEach((checkbox) => {
+									setValue(checkbox, value.includes(checkbox.value));
+								});
+							} else {
+								const checkboxes = form.querySelectorAll(`[name="${name}[]"]`);
+								checkboxes.forEach((checkbox) => {
+									setValue(checkbox, value.includes(checkbox.value));
+								});
+							}
+						} else if (typeof value === "object") {
+							populateForm(form, value, name);
+						} else {
+							setValue(element, value);
+						}
+
+					} else if (typeof value === "object") {
+						populateForm(form, value, name);
+					}
+				}
+			}
+			populateForm(this.node, value);
+		}
+
+		// Altrimenti, imposta il valore dell'elemento corrente
+		else {
+			if (this.node.jdm_getAttribute('type') === 'number' || this.node.jdm_getAttribute('type') === 'range') {
+				this.node.value = value * 1;
+			} else {
+				this.node.value = value;
+			}
+		}
+		// Restituisce il nodo aggiornato
+		return this.node;
+	}
+
+
+	/**
+	 * Restituisce il valore dell'elemento HTML rappresentato dall'oggetto corrente.
+	 * Se l'elemento è una casella di controllo (checkbox) o un pulsante di opzione (radio), restituisce true se l'elemento è selezionato, altrimenti false.
+	 * Se l'elemento è un modulo (form), restituisce un oggetto con i valori dei campi d'input del modulo.
+	 * Se l'elemento non è una casella di controllo, un pulsante di opzione o un modulo, restituisce il valore dell'elemento.
+	 * @returns {(boolean|Object|string)} Il valore dell'elemento HTML.
+	 */
+	jdm_getValue() {
+		// Se l'elemento corrente è un input di tipo checkbox o radio, restituisci il valore di "checked" del nodo HTML rappresentato dall'oggetto corrente
+		if (this.tag === 'input' &amp;&amp; (this.node.type === 'checkbox' || this.node.type === 'radio')) {
+			return this.node.checked;
+		}
+		// Se l'elemento corrente è un modulo, restituisci un oggetto con i valori dei campi d'input del modulo
+		else if (this.tag === 'form') {
+			const formData = new FormData(this.node);
+			const json = {};
+
+			for (let [key, value] of formData.entries()) {
+
+				value = (value === '') ? null : value;//todo check trim()
+				value = (value === 'null') ? null : value; //todo check trim()
+				let currentObj = json;
+				const keys = key.split(/\[|\]\[|\]/).filter(Boolean);
+				const lastKey = keys.pop();
+
+				for (let i = 0; i &lt; keys.length; i++) {
+					const currentKey = keys[i];
+					if (!currentObj[currentKey]) {
+						currentObj[currentKey] = isNaN(keys[i + 1]) ? {} : [];
+					}
+					currentObj = currentObj[currentKey];
+				}
+
+				if (lastKey === "") {
+					if (!currentObj.length) {
+						currentObj.length = 0;
+					}
+					currentObj[currentObj.length++] = value;
+
+				} else if (Array.isArray(currentObj[lastKey])) {
+
+					currentObj[lastKey].push(value);
+				} else if (currentObj[lastKey]) {
+
+					currentObj[lastKey] = [currentObj[lastKey], value];
+				} else {
+
+					if (key.endsWith("[]")) {
+						if (value) {
+							currentObj[lastKey] = new Array;
+							currentObj[lastKey].push(value);
+						}
+					} else {
+						currentObj[lastKey] = value;
+					}
+				}
+			}
+			return json;
+		}
+		// In tutti gli altri casi, restituisci il valore dell'elemento HTML rappresentato dall'oggetto corrente
+		else {
+			return this.node.value;
+		}
+	}
+
+	/**
+	 * Genera un evento personalizzato sulla node corrente e opzionalmente lo propaga ai genitori.
+	 * @param {string} name - Il nome dell'evento personalizzato.
+	 * @param {*} [data=null] - Dati opzionali associati all'evento.
+	 * @param {boolean} [propagateToParents=true] - Flag opzionale che indica se l'evento deve essere propagato ai genitori.
+	 * @returns {HTMLElement} La node corrente.
+	 */
+	jdm_genEvent(name, data = null, propagateToParents = true) {
+		// Chiamiamo la funzione "genEvent" dell'oggetto "_common" passando la node corrente come primo parametro, il nome dell'evento personalizzato come secondo parametro,
+		// i dati associati all'evento come terzo parametro e un flag booleano che indica se l'evento deve essere propagato ai genitori come quarto parametro.
+		_common.genEvent(this.node, name, data, propagateToParents);
+		// Restituiamo la node corrente.
+		return this.node;
+	}
+
+	/**
+	 * Aggiunge un ascoltatore di eventi all'elemento HTML corrente.
+	 * Il parametro name è di tipo string e rappresenta il nome dell'evento che l'ascoltatore deve attendere, ad esempio "click", "submit", "keyup", ecc.
+	 * Il parametro fn è opzionale e rappresenta la funzione da eseguire quando l'evento viene attivato. Il valore predefinito è una funzione vuota.
+	 * @param {string} name - Il nome dell'evento da ascoltare (ad esempio "click").
+	 * @param {Function} [fn=() => {}] - La funzione da eseguire quando l'evento viene attivato. Default: una funzione vuota.
+	 * @returns {HTMLElement} L'elemento HTML corrente con l'ascoltatore di eventi aggiunto.
+	 */
+	jdm_addEventListener(name, fn = () => {}) {
+		// Aggiunge un listener per un evento specifico al nodo HTML rappresentato dall'oggetto "this.node"
+		this.node.addEventListener(name, fn);
+		// Restituisce il nodo HTML rappresentato dall'oggetto "this.node"
+		return this.node;
+	}
+
+	/**
+	 * Rimuove un gestore eventi precedentemente associato all'elemento.
+	 *
+	 * @function
+	 * @param {string} name - Il nome dell'evento da rimuovere.
+	 * @param {Function} [fn=() => {}] - La funzione gestore da rimuovere (impostata su una funzione vuota di default se non specificata).
+	 * @returns {HTMLElement} - L'elemento HTML a cui è stata rimossa l'associazione dell'evento.
+	 *
+	 * @example
+	 * const oggetto = new NomeDellaClasse();
+	 * const nomeEvento = 'click';
+	 * const gestoreEvento = () => {
+	 *     // Logica del gestore evento
+	 * };
+	 * oggetto.node.addEventListener(nomeEvento, gestoreEvento);
+	 * oggetto.jdm_removeEventListener(nomeEvento, gestoreEvento); // Rimuove il gestore evento.
+	 */
+	jdm_removeEventListener(name, fn = () => {}) {
+		// Rimuove il gestore evento dall'elemento.
+		this.node.removeEventListener(name, fn);
+		return this.node;
+	}
+}
+
+window.Jdm = Jdm;
+window.JdmData = JdmData;
+
+
+//potresti generarmi la documentazione in lingua italiana con JSDOC per la seguente funzione in javascript? Potresti anche aggiungere commenti al codice con dei commenti javascript in italiano?
+</code></pre></article></section></div></div></div><div class="search-container" id="PkfLWpAbet" style="display:none"><div class="wrapper" id="iCxFxjkHbP"><button class="icon-button search-close-button" id="VjLlGakifb" aria-label="close search"><svg><use xlink:href="#close-icon"></use></svg></button><div class="search-box-c"><svg><use xlink:href="#search-icon"></use></svg> <input type="text" id="vpcKVYIppa" class="search-input" placeholder="Search..." autofocus></div><div class="search-result-c" id="fWwVHRuDuN"><span class="search-result-c-text">Type anything to view search result</span></div></div></div><div class="mobile-menu-icon-container"><button class="icon-button" id="mobile-menu" data-isopen="false" aria-label="menu"><svg><use xlink:href="#menu-icon"></use></svg></button></div><div id="mobile-sidebar" class="mobile-sidebar-container"><div class="mobile-sidebar-wrapper"><a href="/" class="sidebar-title sidebar-title-anchor">Home</a><div class="mobile-nav-links"></div><div class="mobile-sidebar-items-c"><div class="sidebar-section-title with-arrow" data-isopen="false" id="yoMjdnGM1WRzDODJ29XuN"><div>Classes</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="Jdm.html">Jdm</a></div><div class="sidebar-section-children"><a href="JdmData.html">JdmData</a></div><div class="sidebar-section-children"><a href="Proto.html">Proto</a></div></div><div class="sidebar-section-title with-arrow" data-isopen="false" id="_Gibu2GXUArUUK5xI_2yi"><div>Global</div><svg><use xlink:href="#down-icon"></use></svg></div><div class="sidebar-section-children-container"><div class="sidebar-section-children"><a href="global.html#jdm_getAttribute">jdm_getAttribute</a></div></div></div><div class="mobile-navbar-actions"><div class="navbar-right-item"><button class="icon-button search-button" aria-label="open-search"><svg><use xlink:href="#search-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button theme-toggle" aria-label="toggle-theme"><svg><use class="theme-svg-use" xlink:href="#light-theme-icon"></use></svg></button></div><div class="navbar-right-item"><button class="icon-button font-size" aria-label="change-font-size"><svg><use xlink:href="#font-size-icon"></use></svg></button></div></div></div></div><script type="text/javascript" src="scripts/core.min.js"></script><script src="scripts/search.min.js" defer="defer"></script><script src="scripts/third-party/fuse.js" defer="defer"></script><script type="text/javascript">var tocbotInstance=tocbot.init({tocSelector:"#eed4d2a0bfd64539bb9df78095dec881",contentSelector:".main-content",headingSelector:"h1, h2, h3",hasInnerContainers:!0,scrollContainer:".main-content",headingsOffset:130,onClick:bringLinkToView})</script></body></html>

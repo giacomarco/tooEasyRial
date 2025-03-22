@@ -1,0 +1,28 @@
+{
+  "fontFamily": "Helvetica, Sans-Serif",
+  "bgColor": "rgba(0,0,0,0.75)",
+  "autoPlayTimerMs": 5000,
+  "showNotification": true,
+  "list": [
+    {
+      "selector": "#exampleRectangleRed",
+      "position": "right",
+      "message": "<b>test di messaggio</b>"
+    },
+    {
+      "selector": "#exampleRectangleGreen",
+      "position": "bottom",
+      "message": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/emFMHH2Bfvo?si=xHat82g7P2sWHPpq\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
+    },
+    {
+      "selector": "#exampleRectangleBlue",
+      "position": "top",
+      "message": "<b>test di messaggio3</b>"
+    },
+    {
+      "selector": "#exampleRectanglePink",
+      "position": "left",
+      "message": "<b>test di messaggio4</b>"
+    }
+  ]
+}
