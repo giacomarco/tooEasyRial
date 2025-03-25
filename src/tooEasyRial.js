@@ -3,15 +3,13 @@ import { TooEasyRialService } from "./tooEasyRial.service";
 import "./tooEasyRial.scss";
 
 /**
- * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON
- * @see {@typedef tooEasyRialJSONexample}
+ * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
  * @example
  * // Esempio di inizializzazione ES6
  * <script type="module">
  *     import {TooEasyRial} from "../dist/tooEasyRial.js";
  *     new TooEasyRial(document.body, './example.json');
  * </script>
- *
  */
 export class TooEasyRial {
     /**
