@@ -3,7 +3,6 @@
   "bgColor": "rgba(0,0,0,0.875)",
   "autoPlayTimerMs": 5000,
   "showNotification": true,
-  "defaultNotification": "Step N. ${this.counter + 1} non visualizzabile",
   "list": [
     {
       "selector": "#exampleRectangleRed",

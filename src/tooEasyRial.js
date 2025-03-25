@@ -821,64 +821,21 @@ export class TooEasyRial {
 
 
 /**
- * Struttura della configurazione per le notifiche.
- * @typedef {Object} NotificationConfig
+ * Struttura del file JSON di configurazione del tutorial.
+ * @typedef {Object} tooEasyRialJSONexample
  * @property {string} fontFamily - La famiglia del font per il testo.
- * @property {string} bgColor - Il colore di sfondo delle notifiche in formato rgba.
+ * @property {string} bgColor - Il colore del tutorial in formato rgba.
  * @property {number} autoPlayTimerMs - Il tempo di attesa (in millisecondi) prima che la notifica successiva venga mostrata automaticamente.
  * @property {boolean} showNotification - Indica se le notifiche devono essere visualizzate.
- * @property {string} defaultNotification - Il messaggio di notifica predefinito, con un riferimento alla variabile `counter` per il passo corrente.
- * @property {Array.<NotificationItem>} list - La lista di notifiche da visualizzare.
+ * @property {Array.<stepList>} list - La lista di notifiche da visualizzare.
  */
 
 /**
  * Struttura di ciascun elemento di notifica nella lista.
- * @typedef {Object} NotificationItem
+ * @typedef {Object} stepList
  * @property {string} selector - Il selettore CSS dell'elemento a cui applicare la notifica.
  * @property {string} position - La posizione della notifica (es. "right", "bottom", "left", "top").
  * @property {string} [positionMobile] - La posizione della notifica sui dispositivi mobili (opzionale).
  * @property {string|Object} message - Il messaggio della notifica, che può essere un testo o un contenuto HTML/iframe.
- * @property {Object.<string, string>} [notificationMessage] - Messaggio personalizzato per la notifica, con versioni in diverse lingue (opzionale).
+ * @property {string|Object} [notificationMessage] - Messaggio personalizzato per la notifica, con versioni in diverse lingue (opzionale).
  */
-
-/**
- * Esempio di json di configurazione.
- * @type {NotificationConfig}
- */
-const example = {
-    "fontFamily": "var(--bs-body-font-family)",
-    "bgColor": "rgba(0,0,0,0.875)",
-    "autoPlayTimerMs": 5000,
-    "showNotification": true,
-    "defaultNotification": "Step N. ${this.counter + 1} non visualizzabile",
-    "list": [
-        {
-            "selector": "#exampleRectangleRed",
-            "position": "right",
-            "positionMobile": "bottom",
-            "message":  {
-                "it": "Rettangolo rosso",
-                "en": "Rectangle red"
-            },
-            "notificationMessage":  {
-                "it": "Messaggio personalizzato",
-                "en": "Custom Message"
-            }
-        },
-        {
-            "selector": "#exampleRectangleGreen",
-            "position": "bottom",
-            "message": "<iframe width=\"560\" height=\"315\" src=\"https://www.youtube.com/embed/emFMHH2Bfvo?si=xHat82g7P2sWHPpq\" title=\"YouTube video player\" frameborder=\"0\" allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\" referrerpolicy=\"strict-origin-when-cross-origin\" allowfullscreen></iframe>"
-        },
-        {
-            "selector": "#exampleRectangleBlue",
-            "position": "top",
-            "message": "<b>test di messaggio3</b>"
-        },
-        {
-            "selector": "#exampleRectanglePink",
-            "position": "left",
-            "message": "<b>test di messaggio4</b>"
-        }
-    ]
-};
