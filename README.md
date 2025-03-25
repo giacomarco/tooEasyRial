@@ -3,6 +3,9 @@
 <dl>
 <dt><a href="#TooEasyRial">TooEasyRial</a></dt>
 <dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
+<p>Installa con NPM
+<a href="https://www.npmjs.com/package/tooeasyrial">https://www.npmjs.com/package/tooeasyrial</a>
+ npm install tooeasyrial</p>
 </dd>
 </dl>
 

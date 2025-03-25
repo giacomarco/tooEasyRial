@@ -5,6 +5,11 @@ import "./tooEasyRial.scss";
 
 /**
  * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
+ *
+ * Installa con NPM
+ * https://www.npmjs.com/package/tooeasyrial
+ *  npm install tooeasyrial
+ *
  * @example
  * // Esempio di inizializzazione ES6
  * <script type="module">
