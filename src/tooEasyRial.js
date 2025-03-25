@@ -8,7 +8,7 @@ import "./tooEasyRial.scss";
  * # INSTALLAZIONE E USO:
  * NPM
  * ```bash
- * npm install
+ * npm install tooeasyrial
  * ```
  * Esempio di utilizzo di un modulo ES6:
  * ```javascript

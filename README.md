@@ -5,7 +5,7 @@
 <dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
 <h1 id="installazione-e-uso">INSTALLAZIONE E USO:</h1>
 <p>NPM</p>
-<pre><code class="language-bash">npm install
+<pre><code class="language-bash">npm install tooeasyrial
 </code></pre>
 <p>Esempio di utilizzo di un modulo ES6:</p>
 <pre><code class="language-javascript">import {TooEasyRial} from &#39;./yourPath/dist/tooEasyRial.js&quot;;
