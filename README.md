@@ -2,7 +2,7 @@
 
 <dl>
 <dt><a href="#TooEasyRial">TooEasyRial</a></dt>
-<dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
+<dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON</p>
 </dd>
 </dl>
 

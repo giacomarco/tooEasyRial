@@ -3,13 +3,15 @@ import { TooEasyRialService } from "./tooEasyRial.service";
 import "./tooEasyRial.scss";
 
 /**
- * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
+ * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON
+ * @see {@typedef tooEasyRialJSONexample}
  * @example
  * // Esempio di inizializzazione ES6
  * <script type="module">
  *     import {TooEasyRial} from "../dist/tooEasyRial.js";
  *     new TooEasyRial(document.body, './example.json');
  * </script>
+ *
  */
 export class TooEasyRial {
     /**
@@ -241,24 +243,20 @@ export class TooEasyRial {
         switch (position) {
             case "left": {
                 x = x - bboxBalloon.width - 32;
-                y = y;
                 this.balloon.jdm_setStyle("top", y + "px").jdm_setStyle("left", x + "px");
                 break;
             }
             case "right": {
                 x = x + w + 16;
-                y = y;
                 this.balloon.jdm_setStyle("top", y + "px").jdm_setStyle("left", x + "px");
                 break;
             }
             case "bottom": {
-                x = x;
                 y = y + h + 16;
                 this.balloon.jdm_setStyle("top", y + "px").jdm_setStyle("left", x + "px");
                 break;
             }
             case "top": {
-                x = x;
                 y = y - bboxBalloon.height - 32;
                 this.balloon.jdm_setStyle("top", y + "px").jdm_setStyle("left", x + "px");
                 break;
