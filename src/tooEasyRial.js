@@ -1,16 +1,17 @@
-import { Jdm } from "./libraries/jdm/1.0.0/js/jdm.js";
-import { TutorialService } from "./toturial.service.js";
+import { Jdm } from "../libraries/jdm/1.0.0/js/jdm.js";
+import { TooEasyRialService } from "./tooEasyRial.service";
+import "./tooEasyRial.scss";
 
-export class BoxTutorial {
+export class TooEasyRial {
     constructor(container, endpoint) {
-        this.service = new TutorialService();
+        this.service = new TooEasyRialService();
         this.container = new Jdm(container);
         this.endpoint = endpoint;
         this.counter = 0;
         this.playing = false;
         this.autoplayTimer = null;
         this.lang = "it";
-        this.importCss();
+        //
         this.keydown = this.keydown.bind(this);
 
         this.init().then(() => {
@@ -399,13 +400,6 @@ export class BoxTutorial {
         const windowWidth = window.innerWidth;
 
         return rect.left >= windowWidth / 2;
-    }
-
-    importCss() {
-        const link = document.createElement("link");
-        link.rel = "stylesheet";
-        link.href = new URL("./tutorial.css", import.meta.url).href;
-        document.head.appendChild(link);
     }
 
     keydown(e) {

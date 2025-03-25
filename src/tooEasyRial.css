@@ -1,0 +1,146 @@
+body {
+  padding: 0;
+  margin: 0;
+  overflow: auto;
+}
+
+#tutorialContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 100000000;
+}
+#tutorialContainer.fadeIn {
+  animation: fadeIn 0.35s ease-in-out;
+}
+#tutorialContainer.fadeOut {
+  animation: fadeOut 0.35s ease-in-out;
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+#tutorialContainer .textShadow {
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.75) !important;
+}
+#tutorialContainer .handCursor {
+  cursor: pointer;
+}
+#tutorialContainer #notificationCenter {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  width: 12rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+#tutorialContainer #notificationCenter .notificationMessage {
+  margin-bottom: 0.25rem;
+}
+#tutorialContainer #buttonTopContainer {
+  position: fixed;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  top: 1rem;
+  right: 1rem;
+  color: rgb(255, 255, 255);
+  mix-blend-mode: difference;
+  z-index: 100;
+}
+#tutorialContainer #tutorialSvg {
+  width: 100%;
+  height: 100%;
+}
+#tutorialContainer #tutorialPlayerContainer {
+  overflow-y: hidden;
+  z-index: 1;
+}
+#tutorialContainer #tutorialPlayerContainer #playerButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+#tutorialContainer #tutorialPlayerContainer #playerButtonContainer .element {
+  opacity: 0.5;
+}
+#tutorialContainer #tutorialPlayerContainer #playerButtonContainer .element.button:hover {
+  opacity: 1;
+}
+#tutorialContainer #tutorialPlayerContainer #progressBarContainer {
+  margin-top: 0.75rem;
+  height: 2px;
+  width: 100%;
+}
+#tutorialContainer #tutorialPlayerContainer #progressBarContainer #progressBarCursor {
+  height: 100%;
+  width: 0;
+  background: rgb(51, 51, 51);
+  background: linear-gradient(90deg, rgba(51, 51, 51, 0) 0%, rgb(51, 51, 51) 75%);
+}
+#tutorialContainer .balloon {
+  position: absolute;
+  padding: 1rem 1rem 0 1rem;
+  overflow-y: hidden;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+  background: rgba(255, 255, 255, 0.75);
+  border-radius: 1rem;
+  backdrop-filter: blur(7.4px);
+  -webkit-backdrop-filter: blur(7.4px);
+  color: #333333;
+  z-index: 10;
+}
+#tutorialContainer .balloon.left {
+  border-radius: 1rem 0 1rem 1rem;
+  margin-left: 1rem;
+}
+#tutorialContainer .balloon.right {
+  border-radius: 0 1rem 1rem 1rem;
+  margin-right: 1rem;
+}
+#tutorialContainer .balloon.bottom {
+  border-radius: 0 1rem 1rem 1rem;
+  margin-bottom: 1rem;
+}
+#tutorialContainer .balloon.top {
+  border-radius: 1rem 1rem 1rem 0;
+  margin-top: 1rem;
+}
+#tutorialContainer .balloon.mobile.left {
+  border-radius: 1rem;
+  margin-left: 1rem;
+}
+#tutorialContainer .balloon.mobile.right {
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+#tutorialContainer .balloon.mobile.bottom {
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  left: 1rem !important;
+  width: calc(100% - 2rem) !important;
+}
+#tutorialContainer .balloon.mobile.top {
+  border-radius: 1rem;
+  margin-top: 1rem;
+  left: 1rem !important;
+  width: calc(100% - 2rem) !important;
+}
+
+/*# sourceMappingURL=tooEasyRial.css.map */
