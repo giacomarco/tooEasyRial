@@ -815,23 +815,22 @@ export class TooEasyRial {
     }
 }
 
-
 /**
  * Struttura del file JSON di configurazione del tutorial.
  * @typedef {Object} tooEasyRialJSONexample
  * @property {string} fontFamily - La famiglia del font per il testo.
  * @property {string} bgColor - Il colore del tutorial in formato rgba.
- * @property {number} autoPlayTimerMs - Il tempo di attesa (in millisecondi) prima che la notifica successiva venga mostrata automaticamente.
+ * @property {number} autoPlayTimerMs - Il tempo di attesa (in millisecondi) prima che il balloon successivo venga mostrata automaticamente.
  * @property {boolean} showNotification - Indica se le notifiche devono essere visualizzate.
- * @property {Array.<stepList>} list - La lista di notifiche da visualizzare.
+ * @property {Array.<stepList>} list - La lista degli step da visualizzare.
  */
 
 /**
- * Struttura di ciascun elemento di notifica nella lista.
+ * Struttura di ciascun elemento step.
  * @typedef {Object} stepList
- * @property {string} selector - Il selettore CSS dell'elemento a cui applicare la notifica.
- * @property {string} position - La posizione della notifica (es. "right", "bottom", "left", "top").
- * @property {string} [positionMobile] - La posizione della notifica sui dispositivi mobili (opzionale).
- * @property {string|Object} message - Il messaggio della notifica, che può essere un testo o un contenuto HTML/iframe.
- * @property {string|Object} [notificationMessage] - Messaggio personalizzato per la notifica, con versioni in diverse lingue (opzionale).
+ * @property {string} selector - Il selettore CSS dell'elemento a cui applicare il balloon.
+ * @property {string} position - La posizione del balloon (es. "right", "bottom", "left", "top").
+ * @property {string} [positionMobile] - La posizione del balloon sui dispositivi mobili (opzionale).
+ * @property {string|Object} message - Il messaggio del balloon. Può essere una stringa o un oggetto di tipo {"it": "foo", "en": "foo_en"}. Il messaggio può contenere blocchi di html con un padre comune
+ * @property {string|Object} [notificationMessage] - Il messaggio della notifica. Può essere una stringa o un oggetto di tipo {"it": "foo", "en": "foo_en"}. Il messaggio può contenere blocchi di html con un padre comune
  */
