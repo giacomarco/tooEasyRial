@@ -7,15 +7,13 @@
     "example": "example"
   },
   "scripts": {
-    "build": "webpack",
     "docs": "jsdoc -c jsdoc.json",
     "docs:markdown": "npx jsdoc-to-markdown ./src/**/*.js > ./README.md",
-    "build:with-docs": "npm run build && npm run docs",
-    "build:with-markdown-docs": "npm run build && npm run docs:markdown"
+    "build": "webpack && npm run docs:markdown && npm run docs"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/giacomarco/tooEnpm install -g npm\nasyRial.git"
+    "url": "git+https://github.com/giacomarco/tooEasyRial.git"
   },
   "keywords": [
     "tutorial"
@@ -45,7 +43,7 @@
     "webpack-shell-plugin-next": "^2.3.2"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^6.7.2",
-    "axios": "^1.8.4"
+    "axios": "^1.8.4",
+    "jdm_javascript_dom_manipulator": "^2.0.0"
   }
 }

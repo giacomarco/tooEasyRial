@@ -43,8 +43,363 @@
 
 
     <section>
-        <article><h1>Documentazione API</h1>
-<p>Benvenuto nella documentazione generata per il tuo progetto.</p></article>
+        <article><h2>Classes</h2>
+<dl>
+<dt><a href="#TooEasyRial">TooEasyRial</a></dt>
+<dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
+</dd>
+</dl>
+<h2>Functions</h2>
+<dl>
+<dt><a href="#language">language(lang)</a> ⇒ <code><a href="#TooEasyRial">TooEasyRial</a></code></dt>
+<dd><p>Imposta la lingua del tutorial.</p>
+<p>Questo metodo consente di cambiare la lingua del tutorial in base al parametro fornito.
+La lingua sarà utilizzata per localizzare il contenuto, i messaggi e le interazioni del tutorial.
+Di default viene impostata la lingua 'IT'</p>
+</dd>
+<dt><a href="#genNotification">genNotification([text], [autoDestroyMs])</a> ⇒ <code>void</code></dt>
+<dd><p>Crea e visualizza una notifica per il tutorial.</p>
+<p>Questo metodo crea una notifica dinamica che viene mostrata nella sezione delle notifiche del tutorial.
+La notifica viene automaticamente rimossa dopo il tempo specificato in millisecondi.
+Se non viene specificato un tempo di distruzione, la notifica verrà rimossa dopo 2500 millisecondi (2.5 secondi).</p>
+</dd>
+<dt><a href="#goToNextStep">goToNextStep()</a> ⇒ <code>boolean</code></dt>
+<dd><p>Naviga al passo successivo del tutorial.</p>
+<p>Questo metodo incrementa il contatore del passo e naviga al passo successivo. Se il passo corrente è l'ultimo,
+il contatore non verrà incrementato. La navigazione è gestita dal metodo <code>goToStep()</code>,
+che aggiorna lo stato del tutorial e la visualizzazione del passo.</p>
+</dd>
+<dt><a href="#goToPrevStep">goToPrevStep()</a> ⇒ <code>boolean</code></dt>
+<dd><p>Naviga al passo precedente del tutorial.</p>
+<p>Questo metodo riduce il contatore del passo e naviga indietro al passo precedente.
+Se il passo corrente è il primo, il contatore viene resettato a 0. La navigazione è gestita dal metodo <code>goToStep()</code>,
+che aggiorna lo stato del tutorial e la visualizzazione del passo.</p>
+</dd>
+<dt><a href="#goToStep">goToStep(counter, [skipToNext])</a> ⇒ <code>void</code></dt>
+<dd><p>Naviga verso un passo specifico del tutorial e aggiorna il progresso.</p>
+<p>Questo metodo si occupa di verificare se l'elemento relativo al passo è visibile. Se non lo è,
+viene mostrata una notifica e, a seconda del parametro <code>skipToNext</code>, il tutorial prosegue al passo successivo o precedente.
+Se l'elemento è visibile, aggiorna lo stato del tutorial e crea una &quot;maschera&quot; per il passo corrente.</p>
+</dd>
+<dt><a href="#autoplay">autoplay()</a> ⇒ <code>void</code></dt>
+<dd><p>Avvia la modalità autoplay per il tutorial, proseguendo automaticamente tra i passi.</p>
+<p>Questo metodo nasconde il pulsante di autoplay e mostra il pulsante per fermarlo. Inoltre, gestisce
+la barra di progresso che si aggiorna durante l'autoplay. Se il passo corrente non è visibile o se si
+arriva all'ultimo passo, l'autoplay si ferma automaticamente.
+La durata di ogni passo può essere configurata tramite <code>autoPlayTimerMs</code> nel file json di configurazione.</p>
+</dd>
+<dt><a href="#stopAutoplay">stopAutoplay()</a> ⇒ <code>void</code></dt>
+<dd><p>Ferma la modalità autoplay del tutorial e ripristina lo stato del tutorial.</p>
+<p>Questo metodo nasconde il pulsante per fermare l'autoplay e mostra nuovamente il pulsante per avviarlo.
+Inoltre, ferma l'intervallo di autoplay e ripristina la barra di progresso al suo stato iniziale.</p>
+</dd>
+<dt><a href="#destroy">destroy()</a> ⇒ <code>void</code></dt>
+<dd><p>Distrugge e rimuove il tutorial dal DOM, e ripristina gli event listener.</p>
+<p>Questo metodo avvia un'animazione di uscita sul contenitore del tutorial, rimuove l'event listener associato
+alla pressione dei tasti e distrugge il contenitore del tutorial dal DOM. Una volta completata l'animazione,
+il tutorial viene rimosso definitivamente.</p>
+</dd>
+<dt><a href="#keydown">keydown(e)</a> ⇒ <code>void</code></dt>
+<dd><p>Gestisce gli eventi di pressione dei tasti durante il tutorial.</p>
+<p>Questo metodo è legato all'evento <code>keydown</code> e gestisce le seguenti azioni in base al tasto premuto:</p>
+<ul>
+<li><strong>Freccia sinistra (←)</strong>: Naviga al passo precedente.</li>
+<li><strong>Freccia destra (→)</strong>: Naviga al passo successivo.</li>
+<li><strong>Esc</strong>: Distrugge il tutorial e rimuove il tutorial dal DOM.</li>
+<li><strong>Barra spaziatrice</strong>: Avvia o ferma l'autoplay del tutorial.</li>
+</ul>
+</dd>
+</dl>
+<h2>Typedefs</h2>
+<dl>
+<dt><a href="#tooEasyRialJSONexample">tooEasyRialJSONexample</a> : <code>Object</code></dt>
+<dd><p>Struttura del file JSON di configurazione del tutorial.</p>
+</dd>
+<dt><a href="#stepList">stepList</a> : <code>Object</code></dt>
+<dd><p>Struttura di ciascun elemento step.</p>
+</dd>
+</dl>
+<p><a name="language"></a></p>
+<h2>language(lang) ⇒ <a href="#TooEasyRial"><code>TooEasyRial</code></a></h2>
+<p>Imposta la lingua del tutorial.</p>
+<p>Questo metodo consente di cambiare la lingua del tutorial in base al parametro fornito.
+La lingua sarà utilizzata per localizzare il contenuto, i messaggi e le interazioni del tutorial.
+Di default viene impostata la lingua 'IT'</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <a href="#TooEasyRial"><code>TooEasyRial</code></a> - L'istanza corrente per il chaining dei metodi.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lang</td>
+<td><code>string</code></td>
+<td>Il codice della lingua da impostare, ad esempio &quot;it&quot; per l'italiano o &quot;en&quot; per l'inglese.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial.json&quot;).language(&quot;en&quot;);
+</code></pre>
+<p><a name="genNotification"></a></p>
+<h2>genNotification([text], [autoDestroyMs]) ⇒ <code>void</code></h2>
+<p>Crea e visualizza una notifica per il tutorial.</p>
+<p>Questo metodo crea una notifica dinamica che viene mostrata nella sezione delle notifiche del tutorial.
+La notifica viene automaticamente rimossa dopo il tempo specificato in millisecondi.
+Se non viene specificato un tempo di distruzione, la notifica verrà rimossa dopo 2500 millisecondi (2.5 secondi).</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma modifica direttamente il DOM per mostrare la notifica.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[text]</td>
+<td><code>string</code></td>
+<td><code>&quot;`Step N. ${this.counter + 1} non visualizzabile`&quot;</code></td>
+<td>Il testo da visualizzare nella notifica. Se non viene fornito, il testo predefinito indicherà che il passo corrente non è visualizzabile.</td>
+</tr>
+<tr>
+<td>[autoDestroyMs]</td>
+<td><code>number</code> | <code>null</code></td>
+<td><code>2500</code></td>
+<td>Il tempo (in millisecondi) dopo il quale la notifica verrà automaticamente rimossa. Se il valore è maggiore di zero, la notifica verrà rimossa dopo il tempo specificato.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.genNotification(&quot;Questo è un messaggio di notifica.&quot;, 3000); // La notifica scomparirà dopo 3 secondi.
+</code></pre>
+<p><a name="goToNextStep"></a></p>
+<h2>goToNextStep() ⇒ <code>boolean</code></h2>
+<p>Naviga al passo successivo del tutorial.</p>
+<p>Questo metodo incrementa il contatore del passo e naviga al passo successivo. Se il passo corrente è l'ultimo,
+il contatore non verrà incrementato. La navigazione è gestita dal metodo <code>goToStep()</code>,
+che aggiorna lo stato del tutorial e la visualizzazione del passo.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>boolean</code> - Restituisce <code>true</code> se la navigazione al passo successivo è avvenuta correttamente,
+altrimenti <code>false</code> (ad esempio, se non è possibile navigare oltre l'ultimo passo).<br>
+<strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.goToNextStep(); // Naviga al passo successivo.
+</code></pre>
+<p><a name="goToPrevStep"></a></p>
+<h2>goToPrevStep() ⇒ <code>boolean</code></h2>
+<p>Naviga al passo precedente del tutorial.</p>
+<p>Questo metodo riduce il contatore del passo e naviga indietro al passo precedente.
+Se il passo corrente è il primo, il contatore viene resettato a 0. La navigazione è gestita dal metodo <code>goToStep()</code>,
+che aggiorna lo stato del tutorial e la visualizzazione del passo.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>boolean</code> - Restituisce <code>true</code> se la navigazione al passo precedente è avvenuta correttamente,
+altrimenti <code>false</code> (ad esempio, se non è possibile navigare oltre il primo passo).<br>
+<strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.goToPrevStep(); // Naviga al passo precedente.
+</code></pre>
+<p><a name="goToStep"></a></p>
+<h2>goToStep(counter, [skipToNext]) ⇒ <code>void</code></h2>
+<p>Naviga verso un passo specifico del tutorial e aggiorna il progresso.</p>
+<p>Questo metodo si occupa di verificare se l'elemento relativo al passo è visibile. Se non lo è,
+viene mostrata una notifica e, a seconda del parametro <code>skipToNext</code>, il tutorial prosegue al passo successivo o precedente.
+Se l'elemento è visibile, aggiorna lo stato del tutorial e crea una &quot;maschera&quot; per il passo corrente.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma modifica direttamente lo stato e il DOM per aggiornare il tutorial.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>counter</td>
+<td><code>number</code></td>
+<td></td>
+<td>L'indice del passo a cui navigare nella lista dei passi.</td>
+</tr>
+<tr>
+<td>[skipToNext]</td>
+<td><code>boolean</code></td>
+<td><code>true</code></td>
+<td>Se <code>true</code>, salta al passo successivo se il passo corrente non è visibile. Se <code>false</code>, salta al passo precedente.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.goToStep(2); // Naviga al terzo passo.
+</code></pre>
+<p><a name="autoplay"></a></p>
+<h2>autoplay() ⇒ <code>void</code></h2>
+<p>Avvia la modalità autoplay per il tutorial, proseguendo automaticamente tra i passi.</p>
+<p>Questo metodo nasconde il pulsante di autoplay e mostra il pulsante per fermarlo. Inoltre, gestisce
+la barra di progresso che si aggiorna durante l'autoplay. Se il passo corrente non è visibile o se si
+arriva all'ultimo passo, l'autoplay si ferma automaticamente.
+La durata di ogni passo può essere configurata tramite <code>autoPlayTimerMs</code> nel file json di configurazione.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma avvia la modalità autoplay e aggiorna il DOM per riflettere il cambiamento.<br>
+<strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.autoplay(); // Avvia l'autoplay del tutorial.
+</code></pre>
+<p><a name="stopAutoplay"></a></p>
+<h2>stopAutoplay() ⇒ <code>void</code></h2>
+<p>Ferma la modalità autoplay del tutorial e ripristina lo stato del tutorial.</p>
+<p>Questo metodo nasconde il pulsante per fermare l'autoplay e mostra nuovamente il pulsante per avviarlo.
+Inoltre, ferma l'intervallo di autoplay e ripristina la barra di progresso al suo stato iniziale.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma ferma l'autoplay e ripristina il DOM per riflettere il cambiamento.<br>
+<strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.stopAutoplay(); // Ferma l'autoplay del tutorial.
+</code></pre>
+<p><a name="destroy"></a></p>
+<h2>destroy() ⇒ <code>void</code></h2>
+<p>Distrugge e rimuove il tutorial dal DOM, e ripristina gli event listener.</p>
+<p>Questo metodo avvia un'animazione di uscita sul contenitore del tutorial, rimuove l'event listener associato
+alla pressione dei tasti e distrugge il contenitore del tutorial dal DOM. Una volta completata l'animazione,
+il tutorial viene rimosso definitivamente.</p>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma rimuove il tutorial e le risorse associate dal DOM.<br>
+<strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>const tutorial = new TooEasyRial(&quot;#container&quot;, &quot;https://api.example.com/tutorial&quot;);
+tutorial.destroy(); // Distrugge il tutorial e lo rimuove dal DOM.
+</code></pre>
+<p><a name="keydown"></a></p>
+<h2>keydown(e) ⇒ <code>void</code></h2>
+<p>Gestisce gli eventi di pressione dei tasti durante il tutorial.</p>
+<p>Questo metodo è legato all'evento <code>keydown</code> e gestisce le seguenti azioni in base al tasto premuto:</p>
+<ul>
+<li><strong>Freccia sinistra (←)</strong>: Naviga al passo precedente.</li>
+<li><strong>Freccia destra (→)</strong>: Naviga al passo successivo.</li>
+<li><strong>Esc</strong>: Distrugge il tutorial e rimuove il tutorial dal DOM.</li>
+<li><strong>Barra spaziatrice</strong>: Avvia o ferma l'autoplay del tutorial.</li>
+</ul>
+<p><strong>Kind</strong>: global function<br>
+<strong>Returns</strong>: <code>void</code> - Non restituisce un valore, ma esegue l'azione appropriata in base al tasto premuto.</p>
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>e</td>
+<td><code>KeyboardEvent</code></td>
+<td>L'evento di pressione del tasto.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example</strong></p>
+<pre class="prettyprint source lang-js"><code>// Aggiunge l'event listener per la gestione dei tasti
+document.addEventListener(&quot;keydown&quot;, tutorial.keydown);
+
+// Gestisce i tasti per:
+// Freccia sinistra: passo precedente
+// Freccia destra: passo successivo
+// Esc: distruggere il tutorial
+// Barra spaziatrice: avviare o fermare l'autoplay
+</code></pre>
+<p><a name="tooEasyRialJSONexample"></a></p>
+<h2>tooEasyRialJSONexample : <code>Object</code></h2>
+<p>Struttura del file JSON di configurazione del tutorial.</p>
+<p><strong>Kind</strong>: global typedef<br>
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>fontFamily</td>
+<td><code>string</code></td>
+<td>La famiglia del font per il testo.</td>
+</tr>
+<tr>
+<td>bgColor</td>
+<td><code>string</code></td>
+<td>Il colore del tutorial in formato rgba.</td>
+</tr>
+<tr>
+<td>autoPlayTimerMs</td>
+<td><code>number</code></td>
+<td>Il tempo di attesa (in millisecondi) prima che il balloon successivo venga mostrata automaticamente.</td>
+</tr>
+<tr>
+<td>showNotification</td>
+<td><code>boolean</code></td>
+<td>Indica se le notifiche devono essere visualizzate.</td>
+</tr>
+<tr>
+<td>list</td>
+<td><a href="#stepList"><code>Array.&lt;stepList&gt;</code></a></td>
+<td>La lista degli step da visualizzare.</td>
+</tr>
+</tbody>
+</table>
+<p><a name="stepList"></a></p>
+<h2>stepList : <code>Object</code></h2>
+<p>Struttura di ciascun elemento step.</p>
+<p><strong>Kind</strong>: global typedef<br>
+<strong>Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>selector</td>
+<td><code>string</code></td>
+<td>Il selettore CSS dell'elemento a cui applicare il balloon.</td>
+</tr>
+<tr>
+<td>position</td>
+<td><code>string</code></td>
+<td>La posizione del balloon (es. &quot;right&quot;, &quot;bottom&quot;, &quot;left&quot;, &quot;top&quot;).</td>
+</tr>
+<tr>
+<td>[positionMobile]</td>
+<td><code>string</code></td>
+<td>La posizione del balloon sui dispositivi mobili (opzionale).</td>
+</tr>
+<tr>
+<td>message</td>
+<td><code>string</code> | <code>Object</code></td>
+<td>Il messaggio del balloon. Può essere una stringa o un oggetto di tipo {&quot;it&quot;: &quot;foo&quot;, &quot;en&quot;: &quot;foo_en&quot;}. Il messaggio può contenere blocchi di html con un padre comune</td>
+</tr>
+<tr>
+<td>[notificationMessage]</td>
+<td><code>string</code> | <code>Object</code></td>
+<td>Il messaggio della notifica. Può essere una stringa o un oggetto di tipo {&quot;it&quot;: &quot;foo&quot;, &quot;en&quot;: &quot;foo_en&quot;}. Il messaggio può contenere blocchi di html con un padre comune</td>
+</tr>
+</tbody>
+</table></article>
     </section>
 
 
@@ -61,7 +416,7 @@
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Mar 25 2025 14:35:14 GMT+0100 (Central European Standard Time)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Mar 25 2025 17:24:16 GMT+0100 (Central European Standard Time)
 </footer>
 
 <script> prettyPrint(); </script>

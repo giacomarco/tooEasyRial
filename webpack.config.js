@@ -21,7 +21,7 @@ module.exports = {
                 use: {
                     loader: "babel-loader",
                     options: {
-                        presets: ["@babel/preset-env"],
+                        presets: ["@babel/preset-env"], // Preset per compatibilità con ES
                     },
                 },
             },
@@ -35,28 +35,28 @@ module.exports = {
             },
             {
                 test: /\.html$/,
-                use: ["html-loader"],
+                use: ["html-loader"], // Gestisce il caricamento degli HTML
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', 'css-loader'],
+                use: ['style-loader', 'css-loader'], // Gestisce i file CSS
             },
         ],
     },
     plugins: [
-        new CleanWebpackPlugin(),
+        new CleanWebpackPlugin(), // Pulisce la cartella dist prima della build
         new WebpackShellPluginNext({
             onAfterEmit: {
-                scripts: ['npx jsdoc -c jsdoc.json'],
+                scripts: ['npm run jsdoc'], // Usa npm per eseguire lo script di documentazione
                 blocking: false,
                 parallel: false
             }
         })
     ],
     devServer: {
-        static: "./dist",
-        port: 3000,
-        open: true,
+        static: "./dist", // Cartella static dove Webpack servirà i file
+        port: 3000, // Porta di sviluppo
+        open: true, // Apre automaticamente il browser
     },
-    mode: "production",
+    mode: "production", // Modalità di produzione
 };

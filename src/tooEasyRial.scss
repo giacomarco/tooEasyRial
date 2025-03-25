@@ -8,6 +8,10 @@ body {
 	top: 0;
 	left: 0;
 	z-index: 100000000;
+	
+	& .d-none {
+		display: none!important;
+	}
 
 	&.fadeIn {
 		animation: fadeIn 0.350s ease-in-out;
@@ -62,6 +66,9 @@ body {
 		color: rgb(255,255,255);
 		mix-blend-mode: difference;
 		z-index: 100;
+		& svg {
+			mix-blend-mode: difference;
+		}
 	}
 
 

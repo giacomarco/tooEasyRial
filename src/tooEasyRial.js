@@ -1,7 +1,6 @@
-import { Jdm } from "../libraries/jdm/1.0.0/js/jdm.js";
 import { TooEasyRialService } from "./tooEasyRial.service";
+import {Jdm} from "jdm_javascript_dom_manipulator"
 import "./tooEasyRial.scss";
-import '@fortawesome/fontawesome-free/css/all.min.css';
 
 
 /**
@@ -111,7 +110,7 @@ export class TooEasyRial {
         const domString = `
 			<div id="tutorialContainer" class="fadeIn">
 				<div id="buttonTopContainer">
-					<i id="close" class="fas fa-times fa-fw fa-2x handCursor textShadow" data-name="close"></i>
+                    <svg xmlns="http://www.w3.org/2000/svg" id="close" class="textShadow handCursor" data-name="close" viewBox="0 0 384 512" height="32px" width="32px"><path fill="#fff" d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
 				</div>
                 <div id="notificationCenter" data-name="notificationCenter"></div>
 			</div>
@@ -147,10 +146,12 @@ export class TooEasyRial {
         const domString = `
             <div id="tutorialPlayerContainer" data-name="player">
                 <div id="playerButtonContainer">
-                    <i  class="element button fas fa-play fa-fw handCursor textShadow ${this.playing ? "d-none" : ""}" data-name="autoPlay"></i>
-                    <i  class="element button fas fa-stop fa-fw handCursor textShadow ${this.playing ? "" : "d-none"}" data-name="stopAutoplay"></i>
-                    <i class="element button fas fa-chevron-left fa-fw handCursor" data-name="stepBack"></i>
-                    <i class="element button fas fa-chevron-right fa-fw handCursor" data-name="stepNext"></i>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="element button handCursor textShadow ${this.playing ? "d-none" : ""}" data-name="autoPlay" width="16px" height="16px" viewBox="0 0 384 512"><path fill="#333" d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="element button handCursor d-none textShadow ${this.playing ? "" : "d-none"}" data-name="stopAutoplay" width="16px" height="16px" viewBox="0 0 384 512"><path fill="#333" d="M0 128C0 92.7 28.7 64 64 64H320c35.3 0 64 28.7 64 64V384c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V128z"/></svg>
+
+                    <svg xmlns="http://www.w3.org/2000/svg" class="element button handCursor" data-name="stepBack" width="16px" height="16px" viewBox="0 0 320 512"><path fill="#333"  d="M267.5 440.6c9.5 7.9 22.8 9.7 34.1 4.4s18.4-16.6 18.4-29l0-320c0-12.4-7.2-23.7-18.4-29s-24.5-3.6-34.1 4.4l-192 160L64 241 64 96c0-17.7-14.3-32-32-32S0 78.3 0 96L0 416c0 17.7 14.3 32 32 32s32-14.3 32-32l0-145 11.5 9.6 192 160z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg"  class="element button  handCursor" data-name="stepNext" width="16px" height="16px" viewBox="0 0 320 512"><path fill="#333" d="M52.5 440.6c-9.5 7.9-22.8 9.7-34.1 4.4S0 428.4 0 416L0 96C0 83.6 7.2 72.3 18.4 67s24.5-3.6 34.1 4.4l192 160L256 241l0-145c0-17.7 14.3-32 32-32s32 14.3 32 32l0 320c0 17.7-14.3 32-32 32s-32-14.3-32-32l0-145-11.5 9.6-192 160z"/></svg>
                     <div id="counterContainer" class="element"  data-name="counterContainer"> 
 						<span class="" data-name="currentStep">${this.counter + 1}</span> / ${this.stepList.length}</div>
                 </div>
