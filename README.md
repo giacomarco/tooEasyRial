@@ -2,7 +2,15 @@
 
 <dl>
 <dt><a href="#TooEasyRial">TooEasyRial</a></dt>
-<dd><p>Questa classe principale per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
+<dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
+</dd>
+</dl>
+
+## Constants
+
+<dl>
+<dt><a href="#example">example</a> : <code><a href="#NotificationConfig">NotificationConfig</a></code></dt>
+<dd><p>Esempio di json di configurazione.</p>
 </dd>
 </dl>
 
@@ -69,6 +77,23 @@ il tutorial viene rimosso definitivamente.</p>
 </dd>
 </dl>
 
+## Typedefs
+
+<dl>
+<dt><a href="#NotificationConfig">NotificationConfig</a> : <code>Object</code></dt>
+<dd><p>Struttura della configurazione per le notifiche.</p>
+</dd>
+<dt><a href="#NotificationItem">NotificationItem</a> : <code>Object</code></dt>
+<dd><p>Struttura di ciascun elemento di notifica nella lista.</p>
+</dd>
+</dl>
+
+<a name="example"></a>
+
+## example : [<code>NotificationConfig</code>](#NotificationConfig)
+Esempio di json di configurazione.
+
+**Kind**: global constant  
 <a name="language"></a>
 
 ## language(lang) ⇒ [<code>TooEasyRial</code>](#TooEasyRial)
@@ -244,3 +269,36 @@ document.addEventListener("keydown", tutorial.keydown);
 // Esc: distruggere il tutorial
 // Barra spaziatrice: avviare o fermare l'autoplay
 ```
+<a name="NotificationConfig"></a>
+
+## NotificationConfig : <code>Object</code>
+Struttura della configurazione per le notifiche.
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| fontFamily | <code>string</code> | La famiglia del font per il testo. |
+| bgColor | <code>string</code> | Il colore di sfondo delle notifiche in formato rgba. |
+| autoPlayTimerMs | <code>number</code> | Il tempo di attesa (in millisecondi) prima che la notifica successiva venga mostrata automaticamente. |
+| showNotification | <code>boolean</code> | Indica se le notifiche devono essere visualizzate. |
+| defaultNotification | <code>string</code> | Il messaggio di notifica predefinito, con un riferimento alla variabile `counter` per il passo corrente. |
+| list | [<code>Array.&lt;NotificationItem&gt;</code>](#NotificationItem) | La lista di notifiche da visualizzare. |
+
+<a name="NotificationItem"></a>
+
+## NotificationItem : <code>Object</code>
+Struttura di ciascun elemento di notifica nella lista.
+
+**Kind**: global typedef  
+**Properties**
+
+| Name | Type | Description |
+| --- | --- | --- |
+| selector | <code>string</code> | Il selettore CSS dell'elemento a cui applicare la notifica. |
+| position | <code>string</code> | La posizione della notifica (es. "right", "bottom", "left", "top"). |
+| [positionMobile] | <code>string</code> | La posizione della notifica sui dispositivi mobili (opzionale). |
+| message | <code>string</code> \| <code>Object</code> | Il messaggio della notifica, che può essere un testo o un contenuto HTML/iframe. |
+| [notificationMessage] | <code>Object.&lt;string, string&gt;</code> | Messaggio personalizzato per la notifica, con versioni in diverse lingue (opzionale). |
+

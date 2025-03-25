@@ -1,13 +1,22 @@
 {
-  "fontFamily": "Helvetica, Sans-Serif",
-  "bgColor": "rgba(0,0,0,0.75)",
+  "fontFamily": "var(--bs-body-font-family)",
+  "bgColor": "rgba(0,0,0,0.875)",
   "autoPlayTimerMs": 5000,
   "showNotification": true,
+  "defaultNotification": "Step N. ${this.counter + 1} non visualizzabile",
   "list": [
     {
       "selector": "#exampleRectangleRed",
       "position": "right",
-      "message": "<b>test di messaggio</b>"
+      "positionMobile": "bottom",
+      "message":  {
+        "it": "Rettangolo rosso",
+        "en": "Rectangle red"
+      },
+      "notificationMessage":  {
+        "it": "Messaggio personalizzato",
+        "en": "Custom Message"
+      }
     },
     {
       "selector": "#exampleRectangleGreen",
