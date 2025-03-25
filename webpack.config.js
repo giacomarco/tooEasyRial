@@ -1,4 +1,5 @@
 const path = require("path");
+const WebpackShellPluginNext = require('webpack-shell-plugin-next');
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
@@ -38,7 +39,16 @@ module.exports = {
             },
         ],
     },
-    plugins: [new CleanWebpackPlugin()],
+    plugins: [
+        new CleanWebpackPlugin(),
+        new WebpackShellPluginNext({
+            onAfterEmit: {
+                scripts: ['npx jsdoc -c jsdoc.json'],
+                blocking: false,
+                parallel: false
+            }
+        })
+    ],
     devServer: {
         static: "./dist",
         port: 3000,

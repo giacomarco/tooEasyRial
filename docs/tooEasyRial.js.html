@@ -1,4 +1,32 @@
-import { Jdm } from "../libraries/jdm/1.0.0/js/jdm.js";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: tooEasyRial.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: tooEasyRial.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Jdm } from "../libraries/jdm/1.0.0/js/jdm.js";
 import { TooEasyRialService } from "./tooEasyRial.service";
 import "./tooEasyRial.scss";
 
@@ -46,7 +74,7 @@ export class TooEasyRial {
      *
      * @async
      * @function init
-     * @returns {Promise<void>} Non restituisce un valore, ma aggiorna le proprietà dell'istanza.
+     * @returns {Promise&lt;void>} Non restituisce un valore, ma aggiorna le proprietà dell'istanza.
      *
      * @throws {Error} Se il recupero dei dati dal servizio fallisce.
      *
@@ -101,12 +129,12 @@ export class TooEasyRial {
     genDom() {
         //language=html
         const domString = `
-			<div id="tutorialContainer" class="fadeIn">
-				<div id="buttonTopContainer">
-					<i id="close" class="fas fa-times fa-fw fa-2x handCursor textShadow" data-name="close"></i>
-				</div>
-                <div id="notificationCenter" data-name="notificationCenter"></div>
-			</div>
+			&lt;div id="tutorialContainer" class="fadeIn">
+				&lt;div id="buttonTopContainer">
+					&lt;i id="close" class="fas fa-times fa-fw fa-2x handCursor textShadow" data-name="close">&lt;/i>
+				&lt;/div>
+                &lt;div id="notificationCenter" data-name="notificationCenter">&lt;/div>
+			&lt;/div>
 		`;
         this.tutorialContainer = new Jdm(domString, this.container, null, true).jdm_extendChildNode().jdm_removeClassList("hide");
 
@@ -137,19 +165,19 @@ export class TooEasyRial {
         this.navigator?.jdm_destroy();
         //language=html
         const domString = `
-            <div id="tutorialPlayerContainer" data-name="player">
-                <div id="playerButtonContainer">
-                    <i  class="element button fas fa-play fa-fw handCursor textShadow ${this.playing ? "d-none" : ""}" data-name="autoPlay"></i>
-                    <i  class="element button fas fa-stop fa-fw handCursor textShadow ${this.playing ? "" : "d-none"}" data-name="stopAutoplay"></i>
-                    <i class="element button fas fa-chevron-left fa-fw handCursor" data-name="stepBack"></i>
-                    <i class="element button fas fa-chevron-right fa-fw handCursor" data-name="stepNext"></i>
-                    <div id="counterContainer" class="element"  data-name="counterContainer"> 
-						<span class="" data-name="currentStep">${this.counter + 1}</span> / ${this.stepList.length}</div>
-                </div>
-                <div id="progressBarContainer" data-name="progressBarContainer">
-                    <div id="progressBarCursor" data-name="progressBarCursor"></div>
-                </div>
-            </div>
+            &lt;div id="tutorialPlayerContainer" data-name="player">
+                &lt;div id="playerButtonContainer">
+                    &lt;i  class="element button fas fa-play fa-fw handCursor textShadow ${this.playing ? "d-none" : ""}" data-name="autoPlay">&lt;/i>
+                    &lt;i  class="element button fas fa-stop fa-fw handCursor textShadow ${this.playing ? "" : "d-none"}" data-name="stopAutoplay">&lt;/i>
+                    &lt;i class="element button fas fa-chevron-left fa-fw handCursor" data-name="stepBack">&lt;/i>
+                    &lt;i class="element button fas fa-chevron-right fa-fw handCursor" data-name="stepNext">&lt;/i>
+                    &lt;div id="counterContainer" class="element"  data-name="counterContainer"> 
+						&lt;span class="" data-name="currentStep">${this.counter + 1}&lt;/span> / ${this.stepList.length}&lt;/div>
+                &lt;/div>
+                &lt;div id="progressBarContainer" data-name="progressBarContainer">
+                    &lt;div id="progressBarCursor" data-name="progressBarCursor">&lt;/div>
+                &lt;/div>
+            &lt;/div>
 		`;
 
         this.navigator = new Jdm(domString, container, null, true).jdm_extendChildNode();
@@ -187,13 +215,13 @@ export class TooEasyRial {
         this.svg?.jdm_destroy();
         const containerBBox = this.container.getBoundingClientRect();
         //language=html
-        const domString = `<svg id="tutorialSvg"  width="${containerBBox.width}" height="${containerBBox.height}"></svg>`;
+        const domString = `&lt;svg id="tutorialSvg"  width="${containerBBox.width}" height="${containerBBox.height}">&lt;/svg>`;
         this.svg = new Jdm(domString, this.tutorialContainer, null, true).jdm_extendChildNode().jdm_onClick(e => {
             e.stopPropagation();
             e.preventDefault();
             this.goToNextStep();
         });
-        this.goToStep(this.counter <= 0 ? 0 : this.counter, true);
+        this.goToStep(this.counter &lt;= 0 ? 0 : this.counter, true);
     }
 
     /**
@@ -221,10 +249,10 @@ export class TooEasyRial {
 
         //language=html
         const domString = `
-            <div class="balloon ${position} ${this.isMobile() ? "mobile" : "desktop"}" >
-                <div style="font-family: ${this.data.fontFamily || '"Courier New", Courier, monospace'}">${step.message[this.lang] || step.message}</div>
-				<div class="navigatorContainer" data-name="navigatorContainer"></div>
-            </div>
+            &lt;div class="balloon ${position} ${this.isMobile() ? "mobile" : "desktop"}" >
+                &lt;div style="font-family: ${this.data.fontFamily || '"Courier New", Courier, monospace'}">${step.message[this.lang] || step.message}&lt;/div>
+				&lt;div class="navigatorContainer" data-name="navigatorContainer">&lt;/div>
+            &lt;/div>
 		`;
 
         this.balloon = new Jdm(domString, this.tutorialContainer, null, true).jdm_extendChildNode();
@@ -493,7 +521,7 @@ export class TooEasyRial {
                 timeout = null;
                 if (!immediate) func.apply(context, args);
             }, wait);
-            if (immediate && !timeout) func.apply(context, args);
+            if (immediate &amp;&amp; !timeout) func.apply(context, args);
         };
     }
     /**
@@ -576,9 +604,9 @@ export class TooEasyRial {
      */
     genNotification(text = `Step N. ${this.counter + 1} non visualizzabile`, autoDestroyMs= 2500) {
         //language=html
-        const domString = `<div class="notificationMessage">${text}</div>`;
+        const domString = `&lt;div class="notificationMessage">${text}&lt;/div>`;
         const message = new Jdm(domString, this.tutorialContainer.notificationCenter);
-        if (autoDestroyMs && autoDestroyMs > 0) {
+        if (autoDestroyMs &amp;&amp; autoDestroyMs > 0) {
             setTimeout(message.jdm_destroy, autoDestroyMs);
         }
     }
@@ -601,7 +629,7 @@ export class TooEasyRial {
     goToNextStep() {
         this.counter = this.counter === this.stepList.length - 1 ? this.stepList.length - 1 : (this.counter += 1);
         this.goToStep(this.counter, true);
-        return this.counter < this.stepList.length - 1;
+        return this.counter &lt; this.stepList.length - 1;
     }
 
     /**
@@ -620,7 +648,7 @@ export class TooEasyRial {
      * tutorial.goToPrevStep(); // Naviga al passo precedente.
      */
     goToPrevStep() {
-        this.counter = this.counter <= 1 ? 0 : (this.counter -= 1);
+        this.counter = this.counter &lt;= 1 ? 0 : (this.counter -= 1);
         this.goToStep(this.counter, false);
         return this.counter > 1;
     }
@@ -652,7 +680,7 @@ export class TooEasyRial {
                 this.genNotification(text);
             }
             if (skipToNext) {
-                if (this.counter < this.stepList.length - 1) {
+                if (this.counter &lt; this.stepList.length - 1) {
                     this.counter--;
                     this.goToNextStep();
                 }
@@ -771,7 +799,7 @@ export class TooEasyRial {
      */
     keydown(e) {
         e.preventDefault();
-        // arrow <- prev step
+        // arrow &lt;- prev step
         if (e.keyCode === 37) {
             this.goToPrevStep();
         }
@@ -812,3 +840,26 @@ export class TooEasyRial {
         document.addEventListener("keydown", this.keydown);
     }
 }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="TooEasyRial.html">TooEasyRial</a></li></ul><h3>Global</h3><ul><li><a href="global.html#autoplay">autoplay</a></li><li><a href="global.html#destroy">destroy</a></li><li><a href="global.html#genNotification">genNotification</a></li><li><a href="global.html#goToNextStep">goToNextStep</a></li><li><a href="global.html#goToPrevStep">goToPrevStep</a></li><li><a href="global.html#goToStep">goToStep</a></li><li><a href="global.html#keydown">keydown</a></li><li><a href="global.html#language">language</a></li><li><a href="global.html#stopAutoplay">stopAutoplay</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.4</a> on Tue Mar 25 2025 12:56:56 GMT+0100 (Central European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>
