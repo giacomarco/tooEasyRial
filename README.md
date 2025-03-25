@@ -3,9 +3,13 @@
 <dl>
 <dt><a href="#TooEasyRial">TooEasyRial</a></dt>
 <dd><p>Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.</p>
-<p>Installa con NPM
-<a href="https://www.npmjs.com/package/tooeasyrial">https://www.npmjs.com/package/tooeasyrial</a>
- npm install tooeasyrial</p>
+<h1 id="installazione-e-uso">INSTALLAZIONE E USO:</h1>
+<p>NPM</p>
+<pre><code class="language-bash">npm install
+</code></pre>
+<p>Esempio di utilizzo di un modulo ES6:</p>
+<pre><code class="language-javascript">import {TooEasyRial} from &#39;./yourPath/dist/tooEasyRial.js&quot;;
+</code></pre>
 </dd>
 </dl>
 

@@ -2,21 +2,21 @@ import { TooEasyRialService } from "./tooEasyRial.service";
 import {Jdm} from "jdm_javascript_dom_manipulator"
 import "./tooEasyRial.scss";
 
-
 /**
- * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
+ *  Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
  *
- * Installa con NPM
- * https://www.npmjs.com/package/tooeasyrial
- *  npm install tooeasyrial
- *
- * @example
- * // Esempio di inizializzazione ES6
- * <script type="module">
- *     import {TooEasyRial} from "../dist/tooEasyRial.js";
- *     new TooEasyRial(document.body, './example.json');
- * </script>
+ * # INSTALLAZIONE E USO:
+ * NPM
+ * ```bash
+ * npm install
+ * ```
+ * Esempio di utilizzo di un modulo ES6:
+ * ```javascript
+ * import {TooEasyRial} from './yourPath/dist/tooEasyRial.js";
+ * ```
  */
+
+
 export class TooEasyRial {
     /**
      * Crea un'istanza di TooEasyRial.
