@@ -1,6 +1,8 @@
 import { Jdm } from "../libraries/jdm/1.0.0/js/jdm.js";
 import { TooEasyRialService } from "./tooEasyRial.service";
 import "./tooEasyRial.scss";
+import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 /**
  * Sistema per la generazione automatica di tutorial basati su un file di configurazione JSON.
