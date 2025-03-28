@@ -1,7 +1,7 @@
 {
   "fontFamily": "var(--bs-body-font-family)",
   "bgColor": "rgba(0,0,0,0.875)",
-  "autoPlayTimerMs": 5000,
+  "autoPlayTimerMs": 1000,
   "showNotification": true,
   "list": [
     {
