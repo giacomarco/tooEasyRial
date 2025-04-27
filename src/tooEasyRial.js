@@ -1,5 +1,5 @@
 import { TooEasyRialService } from "./tooEasyRial.service";
-import {Jdm} from "jdm_javascript_dom_manipulator"
+import "jdm_javascript_dom_manipulator"
 import "./tooEasyRial.scss";
 
 /**
@@ -33,7 +33,7 @@ export class TooEasyRial {
      */
     constructor(container, endpoint) {
         this.service = new TooEasyRialService();
-        this.container = new Jdm(container);
+        this.container = JDM(container);
         this.endpoint = endpoint;
         this.counter = 0;
         this.playing = false;
@@ -126,7 +126,7 @@ export class TooEasyRial {
                 <div id="notificationCenter" data-name="notificationCenter"></div>
 			</div>
 		`;
-        this.tutorialContainer = new Jdm(domString, this.container, null, true).jdm_extendChildNode().jdm_removeClassList("hide");
+        this.tutorialContainer = JDM(domString, this.container, null, true).jdm_extendChildNode().jdm_removeClassList("hide");
 
         this.tutorialContainer.close.jdm_onClick(() => {
             this.destroy();
@@ -172,7 +172,7 @@ export class TooEasyRial {
             </div>
 		`;
 
-        this.navigator = new Jdm(domString, container, null, true).jdm_extendChildNode();
+        this.navigator = JDM(domString, container, null, true).jdm_extendChildNode();
 
         this.navigator.autoPlay.jdm_onClick(() => {
             this.autoplay();
@@ -208,7 +208,7 @@ export class TooEasyRial {
         const containerBBox = this.container.getBoundingClientRect();
         //language=html
         const domString = `<svg id="tutorialSvg"  width="${containerBBox.width}" height="${containerBBox.height}"></svg>`;
-        this.svg = new Jdm(domString, this.tutorialContainer, null, true).jdm_extendChildNode().jdm_onClick(e => {
+        this.svg = JDM(domString, this.tutorialContainer, null, true).jdm_extendChildNode().jdm_onClick(e => {
             e.stopPropagation();
             e.preventDefault();
             this.goToNextStep();
@@ -247,7 +247,7 @@ export class TooEasyRial {
             </div>
 		`;
 
-        this.balloon = new Jdm(domString, this.tutorialContainer, null, true).jdm_extendChildNode();
+        this.balloon = JDM(domString, this.tutorialContainer, null, true).jdm_extendChildNode();
         this.genNavigator(this.balloon.navigatorContainer);
 
         const bboxBalloon = this.balloon.getBoundingClientRect();
@@ -354,7 +354,7 @@ export class TooEasyRial {
         mask.setAttribute("fill", this.data.bgColor); // Colore di riempimento (nero semi-trasparente)
 
         // Applica la maschera (utilizzando la classe Jdm)
-        this.mask = new Jdm(mask, this.svg);
+        this.mask = JDM(mask, this.svg);
     }
     /**
      * Aggiorna il numero del passo corrente nel tutorial.
@@ -593,7 +593,7 @@ export class TooEasyRial {
     genNotification(text = `Step N. ${this.counter + 1} non visualizzabile`, autoDestroyMs= 2500) {
         //language=html
         const domString = `<div class="notificationMessage">${text}</div>`;
-        const message = new Jdm(domString, this.tutorialContainer.notificationCenter);
+        const message = JDM(domString, this.tutorialContainer.notificationCenter);
         if (autoDestroyMs && autoDestroyMs > 0) {
             setTimeout(message.jdm_destroy, autoDestroyMs);
         }
